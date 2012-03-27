@@ -17,9 +17,6 @@
 
 		<!-- Extensions Versions -->
 		<wagon-ssh.version>2.0</wagon-ssh.version>
-
-		<!-- Other properties -->
-		<thrift.executable>/usr/bin/thrift</thrift.executable>
 	</properties>
 
 	<name>kms-interfaces</name>
