@@ -12,6 +12,9 @@ struct NetworkConnection {
 	2: required list<NetworkConnectionConfig> config,
 }
 
+exception NetworkConnectionNotFoundException {
+}
+
 service NetworkConnectionService extends joinableContainer.JoinableContainerService {
 	
 }

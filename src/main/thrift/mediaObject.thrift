@@ -13,6 +13,9 @@ struct MediaObject {
 	1: ObjectId id,
 }
 
+exception MediaObjectNotFoundException {
+}
+
 service MediaObjectService {
 	/**
 	 * Notifies the remote party that an object is already in use
@@ -20,12 +23,12 @@ service MediaObjectService {
 	 * @param objectId The object identifier
 	 * @param timeout The time until other timeout is required (in seconds)
 	 */
-	void ping(1: MediaObject mediaObject, 2: i32 timeout = DEFAULT_TIMEOUT) throws (1: common.NotFoundException nfe),
+	void ping(1: MediaObject mediaObject, 2: i32 timeout = DEFAULT_TIMEOUT) throws (1: MediaObjectNotFoundException monf),
 	
 	/**
 	 * Releases the given media object
 	 * 
 	 * @param mediaObject The mediaObject that will be released
 	 */
-	void release(1: MediaObject mediaObject) throws (1: common.NotFoundException nfe),
+	void release(1: MediaObject mediaObject) throws (1: MediaObjectNotFoundException monf),
 }
