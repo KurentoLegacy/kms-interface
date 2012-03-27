@@ -22,5 +22,8 @@ exception JoinException {
 
 service JoinableService extends mediaObject.MediaObjectService {
 	void join(1: Joinable from, 2: Joinable to, 3: Direction direction) throws (1: JoinableNotFoundException jnfe, 2: JoinException je),
-	void unjoin(1: Joinable from, 2: Joinable to) throws (1: JoinableNotFoundException jnfe, 2: JoinException je)
+	void unjoin(1: Joinable from, 2: Joinable to) throws (1: JoinableNotFoundException jnfe, 2: JoinException je),
+
+	list<Joinable> getJoinees(1: Joinable from) throws (1: JoinableNotFoundException jnfe),
+	list<Joinable> getDirectionJoiness(1: Joinable from, 2: Direction direction) throws (1: JoinableNotFoundException jnfe),
 }
