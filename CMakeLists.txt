@@ -88,14 +88,22 @@ FOREACH(THRIFT_FILE ${THRIFT_FILES})
 	ENDFOREACH(CPP_FILE)
 ENDFOREACH(THRIFT_FILE)
 
+SET(ALL_INCLUDES "${GEN_H_FILES}" "${THRIFT_FILES}")
+
 add_library(kmsiface ${GEN_CPP_FILES})
+
+set_target_properties(kmsiface PROPERTIES
+		PUBLIC_HEADER	"${ALL_INCLUDES}"
+)
 
 add_dependencies(kmsiface mediaspec_project)
 
 include_directories(kmsiface ${THRIFT_INCLUDE_DIRS} ${MEDIASPEC_INCLUDE_DIR})
 target_link_libraries(kmsiface ${THRIFT_LIBRARIES} mediaspec)
 
-INSTALL(FILES ${GEN_H_FILES} DESTINATION include)
-INSTALL(TARGETS kmsiface ARCHIVE DESTINATION lib)
+INSTALL(TARGETS kmsiface
+			ARCHIVE DESTINATION lib
+			PUBLIC_HEADER DESTINATION include
+)
 install(DIRECTORY ${MEDIASPEC_INSTALL}/lib DESTINATION .)
 install(DIRECTORY ${MEDIASPEC_INSTALL}/include DESTINATION .)
