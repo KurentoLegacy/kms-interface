@@ -18,17 +18,18 @@ pkg_check_modules(THRIFT REQUIRED thrift>=0.8.0)
 #Add here submodule
 include(ExternalProject)
 
+set(MEDIASPEC_INSTALL ${CMAKE_BINARY_DIR}/mediaspec)
+
 ExternalProject_Add(
 	mediaspec_project
 	GIT_REPOSITORY ssh://git@repository.kurento.com/kc/kc-mediaspec-interface.git
-	CMAKE_ARGS -DCMAKE_INSTALL_PREFIX:PATH=${CMAKE_BINARY_DIR}
+	CMAKE_ARGS -DCMAKE_INSTALL_PREFIX:PATH=${MEDIASPEC_INSTALL}
 	UPDATE_COMMAND git checkout master
 )
 
 set(THRIFT_FILES_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src/main/thrift)
 set(GEN_FILES_DIR ${CMAKE_BINARY_DIR}/gen-cpp)
-set(INCLUDE_THRIFT_DIR ${CMAKE_BINARY_DIR}/thrift)
-set(INCLUDE_HEADER_DIR ${CMAKE_BINARY_DIR}/include)
+set(MEDIASPEC_INCLUDE_DIR ${MEDIASPEC_INSTALL}/include)
 FILE(MAKE_DIRECTORY ${GEN_FILES_DIR})
 
 FILE(GLOB THRIFT_FILES ${THRIFT_FILES_DIR}/*.thrift)
@@ -82,7 +83,7 @@ FOREACH(THRIFT_FILE ${THRIFT_FILES})
 
 			COMMAND		${THRIFT_EXEC}
 			ARGS		--gen cpp -out "${GEN_FILES_DIR}"
-					-I ${INCLUDE_THRIFT_DIR} "${THRIFT_FILE}"
+					-I ${MEDIASPEC_INCLUDE_DIR} "${THRIFT_FILE}"
 		)
 	ENDFOREACH(CPP_FILE)
 ENDFOREACH(THRIFT_FILE)
@@ -91,8 +92,10 @@ add_library(kmsiface ${GEN_CPP_FILES})
 
 add_dependencies(kmsiface mediaspec_project)
 
-include_directories(kmsiface ${THRIFT_INCLUDE_DIRS} ${INCLUDE_HEADER_DIR})
+include_directories(kmsiface ${THRIFT_INCLUDE_DIRS} ${MEDIASPEC_INCLUDE_DIR})
 target_link_libraries(kmsiface ${THRIFT_LIBRARIES} mediaspec)
 
 INSTALL(FILES ${GEN_H_FILES} DESTINATION include)
 INSTALL(TARGETS kmsiface ARCHIVE DESTINATION lib)
+install(DIRECTORY ${MEDIASPEC_INSTALL}/lib DESTINATION .)
+install(DIRECTORY ${MEDIASPEC_INSTALL}/include DESTINATION .)
