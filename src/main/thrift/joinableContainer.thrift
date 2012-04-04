@@ -10,7 +10,7 @@ exception JoinableContainerNotFoundException {
 }
 
 struct JoinableStream {
-	1: required joinable.Joinable paren;
+	1: required joinable.Joinable parent;
 }
 
 exception JoinableStreamNotFoundException {

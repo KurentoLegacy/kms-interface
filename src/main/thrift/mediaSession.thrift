@@ -14,7 +14,7 @@ exception MediaSessionNotFoundException {
 
 service MediaSessionService extends mediaObject.MediaObjectService {
 	networkConnection.NetworkConnection createNetworkConnection(1: MediaSession mediaSession, 2: list<networkConnection.NetworkConnectionConfig> config) throws (1: common.MediaServerException mse, 2: MediaSessionNotFoundException msnfe);
-	void deleteNetworkConnection(1: MediaSession mediaSession, 2: networkConnection.NetworkConnection networConnection) throws (1: common.MediaServerException mse, 2: MediaSessionNotFoundException msnfe, 3: networkConnection.NetworkConnectionNotFoundException ncnfe);
+	void deleteNetworkConnection(1: MediaSession mediaSession, 2: networkConnection.NetworkConnection networkConnection) throws (1: common.MediaServerException mse, 2: MediaSessionNotFoundException msnfe, 3: networkConnection.NetworkConnectionNotFoundException ncnfe);
 	list<networkConnection.NetworkConnection> getNetworkConnections(1: MediaSession mediaSession) throws (1: common.MediaServerException mse, 2: MediaSessionNotFoundException msnfe);
 
 	mixer.Mixer createMixer(1: MediaSession mediaSession, 2: list<mixer.MixerConfig> config) throws (1: common.MediaServerException mse, 2: MediaSessionNotFoundException msnfe);
