@@ -3,7 +3,18 @@ namespace * com.kurento.kms.api
 include "common.thrift"
 include "mediaSession.thrift"
 
+struct ServerConfig {
+	1: optional i32 mediaSessionServicePort,
+	2: optional i32 networkConnectionServicePort,
+	3: optional i32 mixerServicePort,
+}
+
 service MediaServerService {
+	/**
+	 * Gets current server configuration that may be usefull for clients
+	 */
+	ServerConfig getServerconfig(),
+
 	/**
 	 * Creates a new mediaSession that allows interaction with media server
 	 */
