@@ -7,6 +7,7 @@ struct ServerConfig {
 	1: optional i32 mediaSessionServicePort,
 	2: optional i32 networkConnectionServicePort,
 	3: optional i32 mixerServicePort,
+	4: optional i32 serverServicePort,
 }
 
 service MediaServerService {
