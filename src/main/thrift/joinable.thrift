@@ -42,5 +42,5 @@ service JoinableService extends mediaObject.MediaObjectService {
 	list<Joinable> getDirectionJoiness(1: Joinable from, 2: Direction direction) throws (1: JoinableNotFoundException jnfe),
 
 	list<Joinable> getStreamJoinees(1: Joinable from, 2: StreamType stream) throws (1: JoinableNotFoundException jnfe, 3: StreamNotFoundException enfs),
-	list<Joinable> getStreamDirectionJoiness(1: Joinable from, 2: Direction direction, 3: StreamType stream) throws (1: JoinableNotFoundException jnfe, 3: StreamNotFoundException enfs),
+	list<Joinable> getStreamDirectionJoiness(1: Joinable from, 2: StreamType stream, 3: Direction direction) throws (1: JoinableNotFoundException jnfe, 3: StreamNotFoundException enfs),
 }
