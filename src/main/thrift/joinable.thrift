@@ -14,7 +14,7 @@ enum StreamType {
 }
 
 struct Joinable {
-	1: required mediaObject.MediaObject parent;
+	1: required mediaObject.MediaObject object;
 }
 
 exception JoinableNotFoundException {

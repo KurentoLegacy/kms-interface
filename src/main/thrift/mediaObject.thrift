@@ -15,7 +15,7 @@ struct MediaObject {
 
 // Declared here to avoid double inclussion on MediaSession childs
 struct MediaSession {
-	1: required MediaObject parent,
+	1: required MediaObject object,
 }
 
 exception MediaObjectNotFoundException {
