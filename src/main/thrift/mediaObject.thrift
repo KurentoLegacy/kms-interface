@@ -13,6 +13,11 @@ struct MediaObject {
 	1: ObjectId id,
 }
 
+// Declared here to avoid double inclussion on MediaSession childs
+struct MediaSession {
+	1: required MediaObject parent,
+}
+
 exception MediaObjectNotFoundException {
 }
 

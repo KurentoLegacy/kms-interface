@@ -1,5 +1,6 @@
 namespace * com.kurento.kms.api
 
+include "mediaObject.thrift"
 include "joinable.thrift"
 include "sessionSpec.thrift"
 
@@ -11,6 +12,7 @@ enum NetworkConnectionConfig {
 struct NetworkConnection {
 	1: required joinable.Joinable parent,
 	2: required list<NetworkConnectionConfig> config,
+	3: required mediaObject.MediaSession session,
 }
 
 exception NetworkConnectionNotFoundException {

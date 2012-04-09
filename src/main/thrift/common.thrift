@@ -9,4 +9,3 @@ exception MediaServerException {
 	1: required string description;
 	2: ErrorCode code = ErrorCode.UNEXPECTED,
 }
-
