@@ -1,6 +1,6 @@
 namespace * com.kurento.kms.api
 
-include "joinableContainer.thrift"
+include "joinable.thrift"
 include "sessionSpec.thrift"
 
 enum NetworkConnectionConfig {
@@ -9,7 +9,7 @@ enum NetworkConnectionConfig {
 }
 
 struct NetworkConnection {
-	1: required joinableContainer.JoinableContainer parent,
+	1: required joinable.Joinable parent,
 	2: required list<NetworkConnectionConfig> config,
 }
 
@@ -20,7 +20,7 @@ exception NegotiationException {
 	1: required string description,
 }
 
-service NetworkConnectionService extends joinableContainer.JoinableContainerService {
+service NetworkConnectionService extends joinable.JoinableService {
 	sessionSpec.SessionSpec generateOffer(1: NetworkConnection nc) throws (1: NetworkConnectionNotFoundException ncnfe),
 	sessionSpec.SessionSpec processAnswer(1: NetworkConnection nc, 2: sessionSpec.SessionSpec anwser) throws (1: NetworkConnectionNotFoundException ncnfe, 2: NegotiationException ne),
 	sessionSpec.SessionSpec processOffer(1: NetworkConnection nc, 2: sessionSpec.SessionSpec offer) throws (1: NetworkConnectionNotFoundException ncnfe, 2: NegotiationException ne),

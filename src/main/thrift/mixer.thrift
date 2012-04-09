@@ -1,6 +1,6 @@
 namespace * com.kurento.kms.api
 
-include "joinableContainer.thrift"
+include "joinable.thrift"
 
 enum MixerConfig {
 	AUDIO,
@@ -8,13 +8,13 @@ enum MixerConfig {
 }
 
 struct Mixer {
-	1: required joinableContainer.JoinableContainer parent,
+	1: required joinable.Joinable parent,
 	2: required list<MixerConfig> config;
 }
 
 exception MixerNotFoundException {
 }
 
-service MixerService extends joinableContainer.JoinableContainerService {
-	
+service MixerService extends joinable.JoinableService {
+
 }
