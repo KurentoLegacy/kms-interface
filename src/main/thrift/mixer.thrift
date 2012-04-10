@@ -11,7 +11,6 @@ enum MixerConfig {
 struct Mixer {
 	1: required joinable.Joinable joinable,
 	2: required list<MixerConfig> config;
-	3: required mediaObject.MediaSession session,
 }
 
 exception MixerNotFoundException {

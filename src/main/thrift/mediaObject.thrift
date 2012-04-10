@@ -11,6 +11,7 @@ typedef i64 ObjectId
 
 struct MediaObject {
 	1: ObjectId id,
+	2: string token, // Autentication token
 }
 
 // Declared here to avoid double inclussion on MediaSession childs

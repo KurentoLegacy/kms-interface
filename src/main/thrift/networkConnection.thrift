@@ -12,7 +12,6 @@ enum NetworkConnectionConfig {
 struct NetworkConnection {
 	1: required joinable.Joinable joinable,
 	2: required list<NetworkConnectionConfig> config,
-	3: required mediaObject.MediaSession session,
 }
 
 exception NetworkConnectionNotFoundException {
