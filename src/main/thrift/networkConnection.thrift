@@ -1,5 +1,6 @@
 namespace * com.kurento.kms.api
 
+include "common.thrift"
 include "mediaObject.thrift"
 include "joinable.thrift"
 include "sessionSpec.thrift"
@@ -22,10 +23,10 @@ exception NegotiationException {
 }
 
 service NetworkConnectionService extends joinable.JoinableService {
-	sessionSpec.SessionSpec generateOffer(1: NetworkConnection nc) throws (1: NetworkConnectionNotFoundException ncnfe),
-	sessionSpec.SessionSpec processAnswer(1: NetworkConnection nc, 2: sessionSpec.SessionSpec anwser) throws (1: NetworkConnectionNotFoundException ncnfe, 2: NegotiationException ne),
-	sessionSpec.SessionSpec processOffer(1: NetworkConnection nc, 2: sessionSpec.SessionSpec offer) throws (1: NetworkConnectionNotFoundException ncnfe, 2: NegotiationException ne),
+	sessionSpec.SessionSpec generateOffer(1: NetworkConnection nc) throws (1: NetworkConnectionNotFoundException ncnfe, 2: common.MediaServerException mse),
+	sessionSpec.SessionSpec processAnswer(1: NetworkConnection nc, 2: sessionSpec.SessionSpec anwser) throws (1: NetworkConnectionNotFoundException ncnfe, 2: NegotiationException ne, 3: common.MediaServerException mse),
+	sessionSpec.SessionSpec processOffer(1: NetworkConnection nc, 2: sessionSpec.SessionSpec offer) throws (1: NetworkConnectionNotFoundException ncnfe, 2: NegotiationException ne, 3: common.MediaServerException mse),
 
-	sessionSpec.SessionSpec getLocalDescriptor(1: NetworkConnection nc) throws (1: NetworkConnectionNotFoundException ncnfe),
-	sessionSpec.SessionSpec getRemoteDescriptor(1: NetworkConnection nc) throws (1: NetworkConnectionNotFoundException ncnfe, 2: NegotiationException ne),
+	sessionSpec.SessionSpec getLocalDescriptor(1: NetworkConnection nc) throws (1: NetworkConnectionNotFoundException ncnfe, 2: common.MediaServerException mse),
+	sessionSpec.SessionSpec getRemoteDescriptor(1: NetworkConnection nc) throws (1: NetworkConnectionNotFoundException ncnfe, 2: NegotiationException ne, 3: common.MediaServerException mse),
 }

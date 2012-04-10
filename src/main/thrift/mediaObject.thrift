@@ -29,12 +29,12 @@ service MediaObjectService {
 	 * @param objectId The object identifier
 	 * @param timeout The time until other timeout is required (in seconds)
 	 */
-	void ping(1: MediaObject mediaObject, 2: i32 timeout = DEFAULT_TIMEOUT) throws (1: MediaObjectNotFoundException monf),
+	void ping(1: MediaObject mediaObject, 2: i32 timeout = DEFAULT_TIMEOUT) throws (1: MediaObjectNotFoundException monf, 2: common.MediaServerException mse),
 
 	/**
 	 * Releases the given media object
 	 *
 	 * @param mediaObject The mediaObject that will be released
 	 */
-	void release(1: MediaObject mediaObject) throws (1: MediaObjectNotFoundException monf),
+	void release(1: MediaObject mediaObject) throws (1: MediaObjectNotFoundException monf, 2: common.MediaServerException mse),
 }

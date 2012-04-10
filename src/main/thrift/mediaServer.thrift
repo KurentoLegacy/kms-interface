@@ -24,5 +24,5 @@ service MediaServerService {
 	/**
 	 * Deletes a previously created media session.
 	 */
-	void deleteMediaSession(1: mediaSession.MediaSession session) throws (1: mediaSession.MediaSessionNotFoundException msnfe),
+	void deleteMediaSession(1: mediaSession.MediaSession session) throws (1: mediaSession.MediaSessionNotFoundException msnfe, 2: common.MediaServerException mse),
 }
