@@ -7,10 +7,23 @@ include "mixer.thrift"
 
 typedef mediaObject.MediaSession MediaSession
 
+/**
+ * Default timeout is one minute
+ */
+const i32 DEFAULT_TIMEOUT = 60;
+
 exception MediaSessionNotFoundException {
 }
 
 service MediaSessionService extends mediaObject.MediaObjectService {
+	/**
+	 * Notifies the remote party that an object is already in use
+	 *
+	 * @param objectId The object identifier
+	 * @param timeout The time until other timeout is required (in seconds)
+	 */
+	void ping(1: mediaObject.MediaSession mediaSession, 2: i32 timeout = DEFAULT_TIMEOUT) throws (1: MediaSessionNotFoundException msnfe, 2: common.MediaServerException mse),
+
 	networkConnection.NetworkConnection createNetworkConnection(1: mediaObject.MediaSession mediaSession, 2: list<networkConnection.NetworkConnectionConfig> config) throws (1: common.MediaServerException mse, 2: MediaSessionNotFoundException msnfe);
 	void deleteNetworkConnection(1: mediaObject.MediaSession mediaSession, 2: networkConnection.NetworkConnection networkConnection) throws (1: common.MediaServerException mse, 2: MediaSessionNotFoundException msnfe, 3: networkConnection.NetworkConnectionNotFoundException ncnfe);
 	list<networkConnection.NetworkConnection> getNetworkConnections(1: mediaObject.MediaSession mediaSession) throws (1: common.MediaServerException mse, 2: MediaSessionNotFoundException msnfe);
