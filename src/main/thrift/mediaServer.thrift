@@ -4,10 +4,12 @@ include "common.thrift"
 include "mediaSession.thrift"
 
 struct ServerConfig {
-	1: optional i32 mediaSessionServicePort,
-	2: optional i32 networkConnectionServicePort,
-	3: optional i32 mixerServicePort,
-	4: optional i32 serverServicePort,
+	1: required string address,
+	2: required i32 serverServicePort,
+
+	3: optional i32 mediaSessionServicePort,
+	4: optional i32 networkConnectionServicePort,
+	5: optional i32 mixerServicePort,
 }
 
 service MediaServerService {
