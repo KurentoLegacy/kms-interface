@@ -1,7 +1,6 @@
 namespace * com.kurento.kms.api
 
 include "common.thrift"
-include "mediaObject.thrift"
 
 enum Direction {
 	SEND,
@@ -15,8 +14,8 @@ enum StreamType {
 }
 
 struct Joinable {
-	1: required mediaObject.MediaObject object;
-	2: required mediaObject.MediaSession session;
+	1: required common.MediaObject object;
+	2: required common.MediaSession session;
 }
 
 exception JoinableNotFoundException {
@@ -31,7 +30,7 @@ exception StreamNotFoundException {
 	1: required string description,
 }
 
-service JoinableService extends mediaObject.MediaObjectService {
+service JoinableService {
 	list<StreamType> getStreams(1: Joinable joinable) throws (1: JoinableNotFoundException jnfe, 2: common.MediaServerException mse),
 
 	void join(1: Joinable from, 2: Joinable to, 3: Direction direction) throws (1: JoinableNotFoundException jnfe, 2: JoinException je, 3: common.MediaServerException mse),
@@ -45,4 +44,6 @@ service JoinableService extends mediaObject.MediaObjectService {
 
 	list<Joinable> getStreamJoinees(1: Joinable from, 2: StreamType stream) throws (1: JoinableNotFoundException jnfe, 3: StreamNotFoundException enfs, 4: common.MediaServerException mse),
 	list<Joinable> getStreamDirectionJoinees(1: Joinable from, 2: StreamType stream, 3: Direction direction) throws (1: JoinableNotFoundException jnfe, 3: StreamNotFoundException enfs, 4: common.MediaServerException mse),
+
+	void release(1: Joinable joinable) throws (1: JoinableNotFoundException jnfe, 2: common.MediaServerException mse),
 }

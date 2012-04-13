@@ -1,6 +1,5 @@
 namespace * com.kurento.kms.api
 
-include "mediaObject.thrift"
 include "joinable.thrift"
 
 enum MixerConfig {

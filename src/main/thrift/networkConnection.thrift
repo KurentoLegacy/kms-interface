@@ -1,7 +1,6 @@
 namespace * com.kurento.kms.api
 
 include "common.thrift"
-include "mediaObject.thrift"
 include "joinable.thrift"
 include "sessionSpec.thrift"
 
