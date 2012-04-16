@@ -1,12 +1,9 @@
 namespace * com.kurento.kms.api
 
 include "common.thrift"
+include "mediaSpec.thrift"
 
-enum Direction {
-	SEND,
-	RECV,
-	SEND_RECV,
-}
+typedef mediaSpec.Direction Direction
 
 enum StreamType {
 	AUDIO,
