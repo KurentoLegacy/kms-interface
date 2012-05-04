@@ -183,7 +183,7 @@
 
 	<scm>
 		<connection>scm:http://kurento.googlecode.com</connection>
-		<developerConnection>scm:git:ssh://git@repository.kurento.com/kms/{project.artifactId}.git</developerConnection>
-		<url>https://repository.kurento.com/git/?p=kms/{project.artifactId}.git</url>
+		<developerConnection>scm:git:ssh://git@repository.kurento.com/kms/${project.artifactId}.git</developerConnection>
+		<url>https://repository.kurento.com/git/?p=kms/${project.artifactId}.git</url>
 	</scm>
 </project>
