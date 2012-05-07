@@ -15,6 +15,23 @@ find_package(PkgConfig)
 
 pkg_check_modules(THRIFT REQUIRED thrift>=0.8.0)
 
+if(EXISTS "${CMAKE_SOURCE_DIR}/.git")
+	execute_process(COMMAND git describe --abbrev=6 --tags --dirty --always
+			OUTPUT_VARIABLE KMS_INTERFACE_VERSION
+			OUTPUT_STRIP_TRAILING_WHITESPACE)
+	string(REGEX REPLACE "^kc-mediaspec-interface-(.*)" "\\1" KMS_INTERFACE_VERSION ${KMS_INTERFACE_VERSION})
+else(EXISTS "${CMAKE_SOURCE_DIR}/.git")
+	set(KMS_INTERFACE_MAJOR_VERSION 1)
+	set(KMS_INTERFACE_MINOR_VERSION 0)
+	set(KMS_INTERFACE_PATCH_VERSION 1-dev)
+	set(KMS_INTERFACE_VERSION
+		${KMS_INTERFACE_MAJOR_VERSION}.${KMS_INTERFACE_MINOR_VERSION}.${KMS_INTERFACE_PATCH_VERSION})
+endif(EXISTS "${CMAKE_SOURCE_DIR}/.git")
+
+CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/kms_interface_config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/kms_interface_config.h)
+
+set(GEN_H_FILES ${CMAKE_CURRENT_BINARY_DIR}/kms_interface_config.h)
+
 #Add here submodule
 include(ExternalProject)
 
