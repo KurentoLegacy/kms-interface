@@ -12,7 +12,7 @@
 
 		<!-- Dependencies Versions -->
 		<libthrift.version>0.8.0</libthrift.version>
-		<kc-mediaspec-interface.version>1.0.1-SNAPSHOT</kc-mediaspec-interface.version>
+		<kc-mediaspec-interface.version>1.0.1</kc-mediaspec-interface.version>
 
 		<!-- Plugins Versions -->
 

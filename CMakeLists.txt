@@ -41,7 +41,7 @@ ExternalProject_Add(
 	mediaspec_project
 	GIT_REPOSITORY ssh://git@repository.kurento.com/kc/kc-mediaspec-interface.git
 	CMAKE_ARGS -DCMAKE_INSTALL_PREFIX:PATH=${MEDIASPEC_INSTALL}
-	UPDATE_COMMAND git checkout develop
+	UPDATE_COMMAND git checkout master
 )
 
 set(THRIFT_FILES_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src/main/thrift)
