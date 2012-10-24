@@ -11,7 +11,7 @@
 		<maven.compiler.target>1.6</maven.compiler.target>
 
 		<!-- Dependencies Versions -->
-		<libthrift.version>0.8.0</libthrift.version>
+		<libthrift.version>0.9.0</libthrift.version>
 		<kc-mediaspec-interface.version>1.0.2-SNAPSHOT</kc-mediaspec-interface.version>
 
 		<!-- Plugins Versions -->
@@ -91,7 +91,7 @@
 		</plugins>
 		<pluginManagement>
 			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings 
+				<!--This plugin's configuration is used to store Eclipse m2e settings
 					only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
