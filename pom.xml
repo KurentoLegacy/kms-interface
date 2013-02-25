@@ -12,7 +12,6 @@
 
 		<!-- Dependencies Versions -->
 		<libthrift.version>0.9.0</libthrift.version>
-		<kc-mediaspec-interface.version>1.0.2</kc-mediaspec-interface.version>
 
 		<!-- Plugins Versions -->
 
@@ -50,11 +49,6 @@
 			<groupId>org.apache.thrift</groupId>
 			<artifactId>libthrift</artifactId>
 			<version>${libthrift.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.kurento.commons</groupId>
-			<artifactId>kc-mediaspec-interface</artifactId>
-			<version>${kc-mediaspec-interface.version}</version>
 		</dependency>
 	</dependencies>
 

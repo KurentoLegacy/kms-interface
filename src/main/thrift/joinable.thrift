@@ -18,9 +18,21 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 namespace * com.kurento.kms.api
 
 include "common.thrift"
-include "mediaSpec.thrift"
 
-typedef mediaSpec.Direction Direction
+enum Direction {
+	/**
+	 * Only sends media
+	 */
+	SENDONLY,
+	/**
+	 * Only receives media
+	 */
+	RECVONLY,
+	/**
+	 * Sends and receives media
+	 */
+	SENDRECV,
+}
 
 enum StreamType {
 	AUDIO,
