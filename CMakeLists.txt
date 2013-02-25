@@ -6,10 +6,10 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pedantic -Wall -DHAVE_INTTYPES_H -std=c
 find_program(THRIFT_EXEC thrift)
 
 IF(NOT EXISTS ${THRIFT_EXEC})
-	MESSAGE(FATAL_ERROR "Thrift not foud")
+	MESSAGE(FATAL_ERROR "Thrift not found")
 ENDIF(NOT EXISTS ${THRIFT_EXEC})
 
-MESSAGE(STATUS "Trift found: ${THRIFT_EXEC}")
+MESSAGE(STATUS "Thrift found: ${THRIFT_EXEC}")
 
 find_package(PkgConfig)
 
