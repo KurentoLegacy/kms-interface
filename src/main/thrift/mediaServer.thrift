@@ -72,7 +72,7 @@ service MediaServerService {
 	// MediaSrc
 	void connect(1: MediaObject mediaSrc, 2: MediaObject mediaSink) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
 	void disconnect(1: MediaObject src, 2: MediaObject mediaSink) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
-	set<MediaObject> getConnectedSinks(1: MediaObject mediaSrc) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+	list<MediaObject> getConnectedSinks(1: MediaObject mediaSrc) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
 
 
 	// MediaSink
@@ -83,11 +83,11 @@ service MediaServerService {
 	void join(1: MediaObject joinableA, 2: MediaObject joinableB) throws (1: MediaObjectNotFoundException monfe, 2: JoinException je, 3: MediaServerException mse);
 	void unjoin(1: MediaObject joinableA, 2: MediaObject joinableB) throws (1: MediaObjectNotFoundException monfe, 2: JoinException je, 3: MediaServerException mse);
 
-	set<MediaObject> getMediaSrcs(1: MediaObject joinable) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
-	set<MediaObject> getMediaSinks(1: MediaObject joinable) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+	list<MediaObject> getMediaSrcs(1: MediaObject joinable) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+	list<MediaObject> getMediaSinks(1: MediaObject joinable) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
 
-	set<MediaObject> getMediaSrcsByMediaType(1: MediaObject joinable, 2: MediaType mediaType) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
-	set<MediaObject> getMediaSinksByMediaType(1: MediaObject joinable, 2: MediaType mediaType) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+	list<MediaObject> getMediaSrcsByMediaType(1: MediaObject joinable, 2: MediaType mediaType) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+	list<MediaObject> getMediaSinksByMediaType(1: MediaObject joinable, 2: MediaType mediaType) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
 
 
 	// MediaPlayer
