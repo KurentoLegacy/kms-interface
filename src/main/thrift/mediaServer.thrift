@@ -104,7 +104,7 @@ service MediaServerService {
 
 	// Stream
 	string generateOffer(1: MediaObject stream) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
-	string processAnswer(1: MediaObject stream, 2: string anwser) throws (1: MediaObjectNotFoundException monfe, 2: NegotiationException ne, 3: MediaServerException mse);
+	string processAnswer(1: MediaObject stream, 2: string answer) throws (1: MediaObjectNotFoundException monfe, 2: NegotiationException ne, 3: MediaServerException mse);
 	string processOffer(1: MediaObject stream, 2: string offer) throws (1: MediaObjectNotFoundException monfe, 2: NegotiationException ne, 3: MediaServerException mse);
 
 	string getLocalDescriptor(1: MediaObject stream) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
