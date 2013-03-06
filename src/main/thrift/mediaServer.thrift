@@ -62,7 +62,7 @@ service MediaServerService {
 	MediaObject createMediaPlayer(1: MediaObject mediaFactory) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
 	MediaObject createMediaRecorder(1: MediaObject mediaFactory) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
 	MediaObject createStream(1: MediaObject mediaFactory) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
-	MediaObject createMixer(1: MediaObject mediaFactory) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+	MediaObject createMixer(1: MediaObject mediaFactory, 2: i32 mixerId) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
 
 
 	// MediaElement
