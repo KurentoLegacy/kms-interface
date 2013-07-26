@@ -168,6 +168,9 @@ service MediaServerService {
   // Mixer
   MediaObject createMixerEndPoint(1: MediaObject mixer) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
 
+  // HttpEndPoint
+  string getUrl(1: MediaObject httpEndPoint) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+
   // UriEndPoint
   string getUri(1: MediaObject uriEndPoint) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
   void start(1: MediaObject uriEndPoint) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
