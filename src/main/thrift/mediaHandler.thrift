@@ -31,7 +31,7 @@ struct MediaError {
   2: mediaServer.MediaObject source,
 }
 
-service HandlerService {
+service MediaHandlerService {
   void onError (1: MediaError error);
   void onEvent (1: MediaEvent event);
 }
