@@ -139,9 +139,9 @@ service MediaServerService {
   MediaObject createSdpEndPoint (1: MediaObject mediaManager, 2: SdpEndPointType type) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
   MediaObject createSdpEndPointWithFixedSdp (1: MediaObject mediaManager, 2: SdpEndPointType type, 3: string sdp) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
 
-  MediaObject createUriEndpoint (1: MediaObject mediaManager, 2: UriEndPointType type, 3: string uri) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+  MediaObject createUriEndPoint (1: MediaObject mediaManager, 2: UriEndPointType type, 3: string uri) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
 
-  MediaObject createHttpEndpoint (1: MediaObject mediaManager) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+  MediaObject createHttpEndPoint (1: MediaObject mediaManager) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
 
   MediaObject createMixer (1: MediaObject mediaManager, 2: MixerType type) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
 
