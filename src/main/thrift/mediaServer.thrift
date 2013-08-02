@@ -91,7 +91,7 @@ enum MixerType {
 }
 
 enum FilterType {
-  IGNORE
+  ZBAR_FILTER
 }
 
 union MediaObjectTypeUnion {
