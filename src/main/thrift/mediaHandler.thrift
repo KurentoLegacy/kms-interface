@@ -23,12 +23,12 @@ include "mediaServer.thrift"
 
 struct MediaEvent {
   1: binary event,
-  2: mediaServer.MediaObject source,
+  2: mediaServer.MediaObjectId source,
 }
 
 struct MediaError {
   1: binary error,
-  2: mediaServer.MediaObject source,
+  2: mediaServer.MediaObjectId source,
 }
 
 service MediaHandlerService {

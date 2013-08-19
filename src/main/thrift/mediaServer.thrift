@@ -105,7 +105,7 @@ union MediaObjectTypeUnion {
   8: optional FilterType filterType,
 }
 
-struct MediaObject {
+struct MediaObjectId {
   1: ObjectId id,
   2: string token, // Authentication token
   3: MediaObjectTypeUnion type;
@@ -113,12 +113,12 @@ struct MediaObject {
 
 struct Command {
   1: binary command,
-  2: MediaObject destination,
+  2: MediaObjectId destination,
 }
 
 struct CommandResult {
   1: binary result,
-  2: MediaObject source,
+  2: MediaObjectId source,
 }
 
 service MediaServerService {
@@ -130,58 +130,58 @@ service MediaServerService {
   /**
    * Release a previous created media object.
    */
-  void release(1: MediaObject mediaObject) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
-  MediaObject getParent (1: MediaObject mediaObject) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse, 3: NoParentException npe);
+  void release(1: MediaObjectId mediaObject) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+  MediaObjectId getParent (1: MediaObjectId mediaObject) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse, 3: NoParentException npe);
 
   // MediaManager
-  MediaObject createMediaManager(1: i32 handlerId) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse, 3: HandlerNotFoundException cnfe);
+  MediaObjectId createMediaManager(1: i32 handlerId) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse, 3: HandlerNotFoundException cnfe);
 
-  MediaObject createSdpEndPoint (1: MediaObject mediaManager, 2: SdpEndPointType type) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
-  MediaObject createSdpEndPointWithFixedSdp (1: MediaObject mediaManager, 2: SdpEndPointType type, 3: string sdp) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+  MediaObjectId createSdpEndPoint (1: MediaObjectId mediaManager, 2: SdpEndPointType type) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+  MediaObjectId createSdpEndPointWithFixedSdp (1: MediaObjectId mediaManager, 2: SdpEndPointType type, 3: string sdp) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
 
-  MediaObject createUriEndPoint (1: MediaObject mediaManager, 2: UriEndPointType type, 3: string uri) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+  MediaObjectId createUriEndPoint (1: MediaObjectId mediaManager, 2: UriEndPointType type, 3: string uri) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
 
-  MediaObject createHttpEndPoint (1: MediaObject mediaManager) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+  MediaObjectId createHttpEndPoint (1: MediaObjectId mediaManager) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
 
-  MediaObject createMixer (1: MediaObject mediaManager, 2: MixerType type) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+  MediaObjectId createMixer (1: MediaObjectId mediaManager, 2: MixerType type) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
 
-  MediaObject createFilter (1: MediaObject mediaManager, 2: FilterType type) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+  MediaObjectId createFilter (1: MediaObjectId mediaManager, 2: FilterType type) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
 
   // MediaElement
-  CommandResult sendCommand (1: MediaObject mediaElement, 2: Command command) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse, 3: EncodingException se);
-  list<MediaObject> getMediaSrcs(1: MediaObject mediaElement) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
-  list<MediaObject> getMediaSinks(1: MediaObject mediaElement) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
-  list<MediaObject> getMediaSrcsByMediaType(1: MediaObject mediaElement, 2: MediaType mediaType) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
-  list<MediaObject> getMediaSinksByMediaType(1: MediaObject mediaElement, 2: MediaType mediaType) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+  CommandResult sendCommand (1: MediaObjectId mediaElement, 2: Command command) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse, 3: EncodingException se);
+  list<MediaObjectId> getMediaSrcs(1: MediaObjectId mediaElement) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+  list<MediaObjectId> getMediaSinks(1: MediaObjectId mediaElement) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+  list<MediaObjectId> getMediaSrcsByMediaType(1: MediaObjectId mediaElement, 2: MediaType mediaType) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+  list<MediaObjectId> getMediaSinksByMediaType(1: MediaObjectId mediaElement, 2: MediaType mediaType) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
 
   // MediaPad
-  MediaType getMediaType (1: MediaObject mediaPad) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+  MediaType getMediaType (1: MediaObjectId mediaPad) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
 
   // MediaSrc
-  void connect(1: MediaObject mediaSrc, 2: MediaObject mediaSink) throws (1: MediaObjectNotFoundException monfe, 2: ConnectionException ce, 3: MediaServerException mse);
-  void disconnect(1: MediaObject src, 2: MediaObject mediaSink) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
-  list<MediaObject> getConnectedSinks(1: MediaObject mediaSrc) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+  void connect(1: MediaObjectId mediaSrc, 2: MediaObjectId mediaSink) throws (1: MediaObjectNotFoundException monfe, 2: ConnectionException ce, 3: MediaServerException mse);
+  void disconnect(1: MediaObjectId src, 2: MediaObjectId mediaSink) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+  list<MediaObjectId> getConnectedSinks(1: MediaObjectId mediaSrc) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
 
   // MediaSink
-  MediaObject getConnectedSrc(1: MediaObject mediaSink) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+  MediaObjectId getConnectedSrc(1: MediaObjectId mediaSink) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
 
   // Mixer
-  MediaObject createMixerEndPoint(1: MediaObject mixer) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+  MediaObjectId createMixerEndPoint(1: MediaObjectId mixer) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
 
   // HttpEndPoint
-  string getUrl(1: MediaObject httpEndPoint) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+  string getUrl(1: MediaObjectId httpEndPoint) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
 
   // UriEndPoint
-  string getUri(1: MediaObject uriEndPoint) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
-  void start(1: MediaObject uriEndPoint) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
-  void pause(1: MediaObject uriEndPoint) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
-  void stop(1: MediaObject uriEndPoint) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+  string getUri(1: MediaObjectId uriEndPoint) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+  void start(1: MediaObjectId uriEndPoint) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+  void pause(1: MediaObjectId uriEndPoint) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+  void stop(1: MediaObjectId uriEndPoint) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
 
   // SdpEndPoint
-  string generateOffer(1: MediaObject sdpEndPoint) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
-  string processAnswer(1: MediaObject sdpEndPoint, 2: string answer) throws (1: MediaObjectNotFoundException monfe, 2: NegotiationException ne, 3: MediaServerException mse);
-  string processOffer(1: MediaObject sdpEndPoint, 2: string offer) throws (1: MediaObjectNotFoundException monfe, 2: NegotiationException ne, 3: MediaServerException mse);
+  string generateOffer(1: MediaObjectId sdpEndPoint) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+  string processAnswer(1: MediaObjectId sdpEndPoint, 2: string answer) throws (1: MediaObjectNotFoundException monfe, 2: NegotiationException ne, 3: MediaServerException mse);
+  string processOffer(1: MediaObjectId sdpEndPoint, 2: string offer) throws (1: MediaObjectNotFoundException monfe, 2: NegotiationException ne, 3: MediaServerException mse);
 
-  string getLocalSessionDescription(1: MediaObject sdpEndPoint) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
-  string getRemoteSessionDescription(1: MediaObject sdpEndPoint) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+  string getLocalSessionDescription(1: MediaObjectId sdpEndPoint) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+  string getRemoteSessionDescription(1: MediaObjectId sdpEndPoint) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
 }
