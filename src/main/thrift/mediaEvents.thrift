@@ -23,5 +23,5 @@ struct EndOfStreamEvent {
 }
 
 union PlayerEndPointEvent {
-  1: EndOfStreamEvent eos;
+  1: optional EndOfStreamEvent eos;
 }

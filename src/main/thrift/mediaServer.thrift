@@ -95,14 +95,14 @@ enum FilterType {
 }
 
 union MediaObjectTypeUnion {
-  1: MediaObjectType mediaObject,
-  2: MediaPadType mediaPad,
-  3: MediaElementType mediaElement,
-  4: EndPointType endPoint,
-  5: SdpEndPointType sdpEndPoint,
-  6: UriEndPointType uriEndPoint,
-  7: MixerType mixerType,
-  8: FilterType filterType,
+  1: optional MediaObjectType mediaObject,
+  2: optional MediaPadType mediaPad,
+  3: optional MediaElementType mediaElement,
+  4: optional EndPointType endPoint,
+  5: optional SdpEndPointType sdpEndPoint,
+  6: optional UriEndPointType uriEndPoint,
+  7: optional MixerType mixerType,
+  8: optional FilterType filterType,
 }
 
 struct MediaObject {
