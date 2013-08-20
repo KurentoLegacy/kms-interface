@@ -53,7 +53,7 @@ exception EncodingException {
 }
 
 enum MediaObjectType {
-  MEDIA_MANAGER,
+  MEDIA_PIPELINE,
   MEDIA_ELEMENT,
   MIXER,
   MEDIA_PAD
@@ -133,19 +133,19 @@ service MediaServerService {
   void release(1: MediaObjectId mediaObject) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
   MediaObjectId getParent (1: MediaObjectId mediaObject) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse, 3: NoParentException npe);
 
-  // MediaManager
-  MediaObjectId createMediaManager(1: i32 handlerId) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse, 3: HandlerNotFoundException cnfe);
+  // MediaPipeline
+  MediaObjectId createMediaPipeline(1: i32 handlerId) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse, 3: HandlerNotFoundException cnfe);
 
-  MediaObjectId createSdpEndPoint (1: MediaObjectId mediaManager, 2: SdpEndPointType type) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
-  MediaObjectId createSdpEndPointWithFixedSdp (1: MediaObjectId mediaManager, 2: SdpEndPointType type, 3: string sdp) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+  MediaObjectId createSdpEndPoint (1: MediaObjectId mediaPipeline, 2: SdpEndPointType type) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+  MediaObjectId createSdpEndPointWithFixedSdp (1: MediaObjectId mediaPipeline, 2: SdpEndPointType type, 3: string sdp) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
 
-  MediaObjectId createUriEndPoint (1: MediaObjectId mediaManager, 2: UriEndPointType type, 3: string uri) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+  MediaObjectId createUriEndPoint (1: MediaObjectId mediaPipeline, 2: UriEndPointType type, 3: string uri) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
 
-  MediaObjectId createHttpEndPoint (1: MediaObjectId mediaManager) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+  MediaObjectId createHttpEndPoint (1: MediaObjectId mediaPipeline) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
 
-  MediaObjectId createMixer (1: MediaObjectId mediaManager, 2: MixerType type) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+  MediaObjectId createMixer (1: MediaObjectId mediaPipeline, 2: MixerType type) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
 
-  MediaObjectId createFilter (1: MediaObjectId mediaManager, 2: FilterType type) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
+  MediaObjectId createFilter (1: MediaObjectId mediaPipeline, 2: FilterType type) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse);
 
   // MediaElement
   CommandResult sendCommand (1: MediaObjectId mediaElement, 2: Command command) throws (1: MediaObjectNotFoundException monfe, 2: MediaServerException mse, 3: EncodingException se);
