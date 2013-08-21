@@ -25,3 +25,8 @@ struct EndOfStreamEvent {
 union PlayerEndPointEvent {
   1: optional EndOfStreamEvent eos;
 }
+
+struct ZBarEvent {
+  1: string type;
+  2: string value;
+}
