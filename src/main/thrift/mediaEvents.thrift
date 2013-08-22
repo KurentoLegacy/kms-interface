@@ -26,6 +26,15 @@ union PlayerEndPointEvent {
   1: optional EndOfStreamEvent eos;
 }
 
+enum HttpEndPointRequestEvent {
+  GET_REQUEST_EVENT,
+  POST_REQUEST_EVENT
+}
+
+union HttpEndPointEvent {
+  1: optional HttpEndPointRequestEvent request;
+}
+
 struct ZBarEvent {
   1: string type;
   2: string value;
