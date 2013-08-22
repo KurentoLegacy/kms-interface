@@ -28,7 +28,8 @@ union PlayerEndPointEvent {
 
 enum HttpEndPointRequestEvent {
   GET_REQUEST_EVENT,
-  POST_REQUEST_EVENT
+  POST_REQUEST_EVENT,
+  UNEXPECTED_REQUEST_EVENT
 }
 
 union HttpEndPointEvent {
