@@ -40,3 +40,12 @@ struct ZBarEvent {
   1: string type;
   2: string value;
 }
+
+struct WindowId{
+ 1: string windowId
+}
+
+union PointerDetectorEvent {
+  1: optional WindowId windowIn
+  2: optional WindowId windowOut
+}
