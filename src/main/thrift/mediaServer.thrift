@@ -93,7 +93,7 @@ enum MixerType {
 enum FilterType {
   ZBAR_FILTER,
   POINTER_DETECTOR_FILTER,
-  FACE_DETECTOR_FILTER,
+  JACK_VADER_FILTER,
 }
 
 union MediaObjectTypeUnion {
