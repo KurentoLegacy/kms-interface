@@ -20,21 +20,3 @@ namespace cpp kurento
 namespace * Kurento
 
 include "mediaServer.thrift"
-
-struct MediaEvent {
-  1: string type,
-  2: binary data,
-  3: mediaServer.MediaObjectRef source
-}
-
-struct MediaError {
-  1: string type,
-  2: string description,
-  3: i32 errorCode
-  4: mediaServer.MediaObjectRef source
-}
-
-service MediaHandlerService {
-	void onEvent(1: string callbackToken, 2: MediaEvent event);
-	void onError(1: string callbackToken, 2: MediaError error);
-}

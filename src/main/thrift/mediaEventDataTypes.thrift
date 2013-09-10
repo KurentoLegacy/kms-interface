@@ -15,16 +15,11 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-namespace java com.kurento.kms.api
+namespace java com.kurento.kms.thrift.api
 namespace cpp kurento
 namespace * Kurento
 
-struct EndOfStreamEvent {
-}
 
-union PlayerEndPointEvent {
-  1: optional EndOfStreamEvent eos;
-}
 
 enum HttpEndPointRequestEvent {
   GET_REQUEST_EVENT,
@@ -32,20 +27,7 @@ enum HttpEndPointRequestEvent {
   UNEXPECTED_REQUEST_EVENT
 }
 
+//data-type for events of type "HttpEndPointEvent"
 union HttpEndPointEvent {
   1: optional HttpEndPointRequestEvent request;
-}
-
-struct ZBarEvent {
-  1: string type;
-  2: string value;
-}
-
-struct WindowId{
- 1: string windowId
-}
-
-union PointerDetectorEvent {
-  1: optional WindowId windowIn
-  2: optional WindowId windowOut
 }
