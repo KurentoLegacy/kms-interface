@@ -31,12 +31,6 @@ exception MediaServerException {
   2: i32 errorCode
 }
 
-//Reserved for errors not caused by the media server
-exception InvokationException {
- 1: string description,
- 2: i32 errorCode
-}
-
 enum PadDirection {
   SINK,
   SRC
@@ -111,55 +105,55 @@ service MediaServerService {
   ////////////////////////////////////////////////////////////////////////////////
 
   //Invoke this method each GarbagePeriod seconds in order to avoid the MediaObject to be garbage collected
-  void keepAlive(1: MediaObjectRef mediaObjectRef) throws (1: MediaServerException mse, 2: InvokationException ie);
+  void keepAlive(1: MediaObjectRef mediaObjectRef) throws (1: MediaServerException mse);
   //Explicity release a MediaObject form memory. All its descendants will be also released and collected.
-  void release(1: MediaObjectRef mediaObjectRef) throws (1: MediaServerException mse, 2: InvokationException ie);
+  void release(1: MediaObjectRef mediaObjectRef) throws (1: MediaServerException mse);
   
   //Invoke this for receiving events form a MediaObject. This method returns a callbackToken that needs to be used for unsubscribing and that will be present on all events.
-  string subscribe(1: MediaObjectRef mediaObjectRef, 2: string handlerAddress, 3: i32 handlerPort) throws (1: MediaServerException mse, 2: InvokationException ie);
+  string subscribe(1: MediaObjectRef mediaObjectRef, 2: string handlerAddress, 3: i32 handlerPort) throws (1: MediaServerException mse);
   //Invoke this for stop receiving events form a MediaObject. The parameter callbackToken must much the one returned by subscribe to the listener.
-  void unsubscribe(1: MediaObjectRef mediaObjectRef, 2: string callbackToken) throws (1: MediaServerException mse, 2: InvokationException ie);
+  void unsubscribe(1: MediaObjectRef mediaObjectRef, 2: string callbackToken) throws (1: MediaServerException mse);
 
   //Send a comand to a media object
-  CommandResult sendCommand(1: MediaObjectRef mediaObject, 2: Command command) throws (1: MediaServerException mse, 2: InvokationException ie);
+  CommandResult sendCommand(1: MediaObjectRef mediaObject, 2: Command command) throws (1: MediaServerException mse);
   
   //Returns the parent (object that created it) of a MediaObject
-  MediaObjectRef getParent(1: MediaObjectRef mediaObjectRef) throws (1: MediaServerException mse, 2: InvokationException ie);
+  MediaObjectRef getParent(1: MediaObjectRef mediaObjectRef) throws (1: MediaServerException mse);
   //Returns the pipeline to which this MediaObjects belong, or the pipeline itself if the argument references a pipeline
-  MediaPipelineRef getMediaPipeline(1: MediaObjectRef mediaObjectRef) throws (1: MediaServerException mse, 2: InvokationException ie);
+  MediaPipelineRef getMediaPipeline(1: MediaObjectRef mediaObjectRef) throws (1: MediaServerException mse);
 
    /////////////////////////////////////////////////////////////////////////////////
   // Methods associated to MediaPipeline object
   /////////////////////////////////////////////////////////////////////////////////
-  MediaPipelineRef createMediaPipeline() throws (1: MediaServerException mse, 2: InvokationException ie);
-  MediaPipelineRef createMediaPipelineWithParams(1: Params params) throws (1: MediaServerException mse, 2: InvokationException ie);
-  MediaElementRef createMediaElement(1: MediaPipelineRef mediaPipeline, 2: string elementType) throws (1: MediaServerException mse, 2: InvokationException ie);
-  MediaElementRef createMediaElementWithParams(1: MediaPipelineRef mediaPipeline, 2: string elementType, 3: Params params) throws (1: MediaServerException mse, 2: InvokationException ie);
-  MediaMixerRef createMediaMixer(1: MediaPipelineRef mediaPipeline, 2: string mixerType) throws (1: MediaServerException mse, 2: InvokationException ie);
-  MediaMixerRef createMediaMixerWithParams(1: MediaPipelineRef mediaPipeline, 2: string mixerType, 3: Params params) throws (1: MediaServerException mse, 2: InvokationException ie);
+  MediaPipelineRef createMediaPipeline() throws (1: MediaServerException mse);
+  MediaPipelineRef createMediaPipelineWithParams(1: Params params) throws (1: MediaServerException mse);
+  MediaElementRef createMediaElement(1: MediaPipelineRef mediaPipeline, 2: string elementType) throws (1: MediaServerException mse);
+  MediaElementRef createMediaElementWithParams(1: MediaPipelineRef mediaPipeline, 2: string elementType, 3: Params params) throws (1: MediaServerException mse);
+  MediaMixerRef createMediaMixer(1: MediaPipelineRef mediaPipeline, 2: string mixerType) throws (1: MediaServerException mse);
+  MediaMixerRef createMediaMixerWithParams(1: MediaPipelineRef mediaPipeline, 2: string mixerType, 3: Params params) throws (1: MediaServerException mse);
 
   /////////////////////////////////////////////////////////////////////////////////
   // Methods associated to MediaElement objects
   /////////////////////////////////////////////////////////////////////////////////
-  list<MediaPadRef> getMediaSrcs(1: MediaElementRef mediaElement) throws (1: MediaServerException mse, 2: InvokationException ie);
-  list<MediaPadRef> getMediaSinks(1: MediaElementRef mediaElement)  throws (1: MediaServerException mse, 2: InvokationException ie);
-  list<MediaPadRef> getMediaSrcsByMediaType(1: MediaElementRef mediaElement, 2: MediaType mediaType) throws (1: MediaServerException mse, 2: InvokationException ie);
-  list<MediaPadRef> getMediaSinksByMediaType(1: MediaElementRef mediaElement, 2: MediaType mediaType) throws (1: MediaServerException mse, 2: InvokationException ie);
-  list<MediaPadRef> getMediaSrcsByFullDescription(1: MediaElementRef mediaElement, 2: MediaType mediaType, 3: string description) throws (1: MediaServerException mse, 2: InvokationException ie);
-  list<MediaPadRef> getMediaSinksByFullDescription(1: MediaElementRef mediaElement, 2: MediaType mediaType, 3: string description) throws (1: MediaServerException mse, 2: InvokationException ie);
+  list<MediaPadRef> getMediaSrcs(1: MediaElementRef mediaElement) throws (1: MediaServerException mse);
+  list<MediaPadRef> getMediaSinks(1: MediaElementRef mediaElement)  throws (1: MediaServerException mse);
+  list<MediaPadRef> getMediaSrcsByMediaType(1: MediaElementRef mediaElement, 2: MediaType mediaType) throws (1: MediaServerException mse);
+  list<MediaPadRef> getMediaSinksByMediaType(1: MediaElementRef mediaElement, 2: MediaType mediaType) throws (1: MediaServerException mse);
+  list<MediaPadRef> getMediaSrcsByFullDescription(1: MediaElementRef mediaElement, 2: MediaType mediaType, 3: string description) throws (1: MediaServerException mse);
+  list<MediaPadRef> getMediaSinksByFullDescription(1: MediaElementRef mediaElement, 2: MediaType mediaType, 3: string description) throws (1: MediaServerException mse);
 
   /////////////////////////////////////////////////////////////////////////////////
   // Methods associated to MediaPad objects
   /////////////////////////////////////////////////////////////////////////////////
-  void connect(1: MediaPadRef mediaSrc, 2: MediaPadRef mediaSink) throws (1: MediaServerException mse, 2: InvokationException ie);
-  void disconnect(1: MediaPadRef mediaSrc, 2: MediaPadRef mediaSink) throws (1: MediaServerException mse, 2: InvokationException ie);
-  list<MediaPadRef> getConnectedSinks(1: MediaPadRef mediaSrc) throws (1: MediaServerException mse, 2: InvokationException ie);
-  MediaPadRef getConnectedSrc(1: MediaPadRef mediaSinkRef) throws (1: MediaServerException mse, 2: InvokationException ie);
-  MediaElementRef getMediaElement(1: MediaPadRef mediaPadRef) throws (1: MediaServerException mse, 2: InvokationException ie);
+  void connect(1: MediaPadRef mediaSrc, 2: MediaPadRef mediaSink) throws (1: MediaServerException mse);
+  void disconnect(1: MediaPadRef mediaSrc, 2: MediaPadRef mediaSink) throws (1: MediaServerException mse);
+  list<MediaPadRef> getConnectedSinks(1: MediaPadRef mediaSrc) throws (1: MediaServerException mse);
+  MediaPadRef getConnectedSrc(1: MediaPadRef mediaSinkRef) throws (1: MediaServerException mse);
+  MediaElementRef getMediaElement(1: MediaPadRef mediaPadRef) throws (1: MediaServerException mse);
 
   /////////////////////////////////////////////////////////////////////////////////
   // Methods associated to Mixer objects
   /////////////////////////////////////////////////////////////////////////////////
-  MediaElementRef createMixerEndPoint(1: MediaMixerRef mixer) throws (1: MediaServerException mse, 2: InvokationException ie);
-  MediaElementRef createMixerEndPointWithParams(1: MediaMixerRef mixer, 2: Params params) throws (1: MediaServerException mse, 2: InvokationException ie);
+  MediaElementRef createMixerEndPoint(1: MediaMixerRef mixer) throws (1: MediaServerException mse);
+  MediaElementRef createMixerEndPointWithParams(1: MediaMixerRef mixer, 2: Params params) throws (1: MediaServerException mse);
 }
