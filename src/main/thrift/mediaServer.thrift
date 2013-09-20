@@ -42,47 +42,35 @@ enum MediaType {
   DATA
 }
 
-/*
-We create specific types of references for each kind of media object.
-Advantages:
-- More intuitive (ex. a media pipeline and a media element are not "types" of anything, so there is no a notion of inheritance or super-type here)
-- Avoid having "types" and "subtypes"
--- Ex. It would make no sense to have only "type" and make it "MediaPipeline" for a pipeline. This would allow creating media pipelines as elements.
-*/
-
-//This represents a logical address for accessing a MediaObject
-struct MediaObjectId {
-  1: ObjectId id, //This may be a union of the rest of types, so that it works on common calls
-  2: string token
+struct MediaElementType {
+  1: string elementType
 }
 
-struct MediaElementRef {
-  1: MediaObjectId mediaObjectId,
-  2: string elementType
+struct MediaPipelineType {
 }
 
-struct MediaPipelineRef {
-  1: MediaObjectId mediaObjectId
+struct MediaPadType {
+  1: PadDirection direction,
+  2: MediaType mediaType,
+  3: string mediaDescription //subtype of media. Useful for "data" MediaType. Ex. location, accelerometer, etc.
 }
 
-struct MediaPadRef {
-  1: MediaObjectId mediaObjectId,
-  2: PadDirection direction,
-  3: MediaType mediaType,
-  4: string mediaDescription //subtype of media. Useful for "data" MediaType. Ex. location, accelerometer, etc.
+struct MediaMixerType {
+  1: string mixerType //type of mixer indicating mixing style.
 }
 
-struct MediaMixerRef {
-  1: MediaObjectId mediaObjectId,
-  2: string mixerType //type of mixer indicating mixing style.
+union MediaObjectType {
+  1: optional MediaPipelineType pipelineType,
+  2: optional MediaElementType elementType,
+  3: optional MediaPadType padType,
+  4: optional MediaMixerType mixerType
 }
 
 //class simulating a "parent" of all MediaObjects. Useful for consolidating methods
-union MediaObjectRef {
-  1: optional MediaElementRef mediaElementRef,
-  2: optional MediaPipelineRef mediaPipelineRef,
-  3: optional MediaPadRef mediaPadRef,
-  4: optional MediaMixerRef mediaMixerRef
+struct MediaObjectRef {
+  1: ObjectId id, //This may be a union of the rest of types, so that it works on common calls
+  2: string token,
+  3: MediaObjectType type
 }
 
 struct Command {
@@ -120,40 +108,40 @@ service MediaServerService {
   //Returns the parent (object that created it) of a MediaObject
   MediaObjectRef getParent(1: MediaObjectRef mediaObjectRef) throws (1: MediaServerException mse);
   //Returns the pipeline to which this MediaObjects belong, or the pipeline itself if the argument references a pipeline
-  MediaPipelineRef getMediaPipeline(1: MediaObjectRef mediaObjectRef) throws (1: MediaServerException mse);
+  MediaObjectRef getMediaPipeline(1: MediaObjectRef mediaObjectRef) throws (1: MediaServerException mse);
 
    /////////////////////////////////////////////////////////////////////////////////
   // Methods associated to MediaPipeline object
   /////////////////////////////////////////////////////////////////////////////////
-  MediaPipelineRef createMediaPipeline() throws (1: MediaServerException mse);
-  MediaPipelineRef createMediaPipelineWithParams(1: Params params) throws (1: MediaServerException mse);
-  MediaElementRef createMediaElement(1: MediaPipelineRef mediaPipeline, 2: string elementType) throws (1: MediaServerException mse);
-  MediaElementRef createMediaElementWithParams(1: MediaPipelineRef mediaPipeline, 2: string elementType, 3: Params params) throws (1: MediaServerException mse);
-  MediaMixerRef createMediaMixer(1: MediaPipelineRef mediaPipeline, 2: string mixerType) throws (1: MediaServerException mse);
-  MediaMixerRef createMediaMixerWithParams(1: MediaPipelineRef mediaPipeline, 2: string mixerType, 3: Params params) throws (1: MediaServerException mse);
+  MediaObjectRef createMediaPipeline() throws (1: MediaServerException mse);
+  MediaObjectRef createMediaPipelineWithParams(1: Params params) throws (1: MediaServerException mse);
+  MediaObjectRef createMediaElement(1: MediaObjectRef mediaPipeline, 2: string elementType) throws (1: MediaServerException mse);
+  MediaObjectRef createMediaElementWithParams(1: MediaObjectRef mediaPipeline, 2: string elementType, 3: Params params) throws (1: MediaServerException mse);
+  MediaObjectRef createMediaMixer(1: MediaObjectRef mediaPipeline, 2: string mixerType) throws (1: MediaServerException mse);
+  MediaObjectRef createMediaMixerWithParams(1: MediaObjectRef mediaPipeline, 2: string mixerType, 3: Params params) throws (1: MediaServerException mse);
 
   /////////////////////////////////////////////////////////////////////////////////
   // Methods associated to MediaElement objects
   /////////////////////////////////////////////////////////////////////////////////
-  list<MediaPadRef> getMediaSrcs(1: MediaElementRef mediaElement) throws (1: MediaServerException mse);
-  list<MediaPadRef> getMediaSinks(1: MediaElementRef mediaElement)  throws (1: MediaServerException mse);
-  list<MediaPadRef> getMediaSrcsByMediaType(1: MediaElementRef mediaElement, 2: MediaType mediaType) throws (1: MediaServerException mse);
-  list<MediaPadRef> getMediaSinksByMediaType(1: MediaElementRef mediaElement, 2: MediaType mediaType) throws (1: MediaServerException mse);
-  list<MediaPadRef> getMediaSrcsByFullDescription(1: MediaElementRef mediaElement, 2: MediaType mediaType, 3: string description) throws (1: MediaServerException mse);
-  list<MediaPadRef> getMediaSinksByFullDescription(1: MediaElementRef mediaElement, 2: MediaType mediaType, 3: string description) throws (1: MediaServerException mse);
+  list<MediaObjectRef> getMediaSrcs(1: MediaObjectRef mediaElement) throws (1: MediaServerException mse);
+  list<MediaObjectRef> getMediaSinks(1: MediaObjectRef mediaElement)  throws (1: MediaServerException mse);
+  list<MediaObjectRef> getMediaSrcsByMediaType(1: MediaObjectRef mediaElement, 2: MediaType mediaType) throws (1: MediaServerException mse);
+  list<MediaObjectRef> getMediaSinksByMediaType(1: MediaObjectRef mediaElement, 2: MediaType mediaType) throws (1: MediaServerException mse);
+  list<MediaObjectRef> getMediaSrcsByFullDescription(1: MediaObjectRef mediaElement, 2: MediaType mediaType, 3: string description) throws (1: MediaServerException mse);
+  list<MediaObjectRef> getMediaSinksByFullDescription(1: MediaObjectRef mediaElement, 2: MediaType mediaType, 3: string description) throws (1: MediaServerException mse);
 
   /////////////////////////////////////////////////////////////////////////////////
   // Methods associated to MediaPad objects
   /////////////////////////////////////////////////////////////////////////////////
-  void connect(1: MediaPadRef mediaSrc, 2: MediaPadRef mediaSink) throws (1: MediaServerException mse);
-  void disconnect(1: MediaPadRef mediaSrc, 2: MediaPadRef mediaSink) throws (1: MediaServerException mse);
-  list<MediaPadRef> getConnectedSinks(1: MediaPadRef mediaSrc) throws (1: MediaServerException mse);
-  MediaPadRef getConnectedSrc(1: MediaPadRef mediaSinkRef) throws (1: MediaServerException mse);
-  MediaElementRef getMediaElement(1: MediaPadRef mediaPadRef) throws (1: MediaServerException mse);
+  void connect(1: MediaObjectRef mediaSrc, 2: MediaObjectRef mediaSink) throws (1: MediaServerException mse);
+  void disconnect(1: MediaObjectRef mediaSrc, 2: MediaObjectRef mediaSink) throws (1: MediaServerException mse);
+  list<MediaObjectRef> getConnectedSinks(1: MediaObjectRef mediaSrc) throws (1: MediaServerException mse);
+  MediaObjectRef getConnectedSrc(1: MediaObjectRef mediaSinkRef) throws (1: MediaServerException mse);
+  MediaObjectRef getMediaElement(1: MediaObjectRef mediaPadRef) throws (1: MediaServerException mse);
 
   /////////////////////////////////////////////////////////////////////////////////
   // Methods associated to Mixer objects
   /////////////////////////////////////////////////////////////////////////////////
-  MediaElementRef createMixerEndPoint(1: MediaMixerRef mixer) throws (1: MediaServerException mse);
-  MediaElementRef createMixerEndPointWithParams(1: MediaMixerRef mixer, 2: Params params) throws (1: MediaServerException mse);
+  MediaObjectRef createMixerEndPoint(1: MediaObjectRef mixer) throws (1: MediaServerException mse);
+  MediaObjectRef createMixerEndPointWithParams(1: MediaObjectRef mixer, 2: Params params) throws (1: MediaServerException mse);
 }
