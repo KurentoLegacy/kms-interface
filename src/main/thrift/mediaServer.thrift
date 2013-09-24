@@ -84,7 +84,6 @@ struct CommandResult {
   1: binary result
 }
 
-
 service MediaServerService {
   i32 getVersion();
 
@@ -104,7 +103,7 @@ service MediaServerService {
 
   //Send a comand to a media object
   CommandResult sendCommand(1: MediaObjectRef mediaObject, 2: Command command) throws (1: MediaServerException mse);
-  
+
   //Returns the parent (object that created it) of a MediaObject
   MediaObjectRef getParent(1: MediaObjectRef mediaObjectRef) throws (1: MediaServerException mse);
   //Returns the pipeline to which this MediaObjects belong, or the pipeline itself if the argument references a pipeline

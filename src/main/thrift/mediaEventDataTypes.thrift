@@ -19,15 +19,12 @@ namespace java com.kurento.kms.thrift.api
 namespace cpp kurento
 namespace * Kurento
 
-
-
 enum HttpEndPointRequestEvent {
   GET_REQUEST_EVENT,
   POST_REQUEST_EVENT,
   UNEXPECTED_REQUEST_EVENT
 }
 
-//data-type for events of type "HttpEndPointEvent"
 union HttpEndPointEvent {
   1: optional HttpEndPointRequestEvent request;
 }
