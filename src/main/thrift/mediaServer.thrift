@@ -21,7 +21,7 @@ namespace * Kurento
 
 const i32 VERSION = 3;
 
-const i32 GarbagePeriod = 120; //Activation period of the distributed garbage collector in seconds
+const i32 GARBAGE_PERIOD = 120; //Activation period of the distributed garbage collector in seconds
 
 typedef i64 ObjectId
 
@@ -75,13 +75,13 @@ struct MediaObjectRef {
 
 struct Command {
   1: string type,
-  2: binary data
+  2: optional binary data
 }
 
 typedef Command Params
 
 struct CommandResult {
-  1: binary result
+  1: optional binary result
 }
 
 service MediaServerService {
