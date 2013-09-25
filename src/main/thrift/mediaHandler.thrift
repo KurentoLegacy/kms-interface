@@ -21,13 +21,13 @@ namespace * Kurento
 
 include "mediaServer.thrift"
 
-struct Event {
+struct KmsEvent {
   1: string type,
   2: optional binary data,
   3: mediaServer.MediaObjectRef source
 }
 
-struct Error {
+struct KmsError {
   1: string type,
   2: string description,
   3: i32 errorCode
@@ -35,6 +35,6 @@ struct Error {
 }
 
 service MediaHandlerService {
-	void onEvent(1: string callbackToken, 2: Event event);
-	void onError(1: string callbackToken, 2: Error error);
+	void onEvent(1: string callbackToken, 2: KmsEvent event);
+	void onError(1: string callbackToken, 2: KmsError error);
 }
