@@ -22,6 +22,7 @@ namespace * Kurento
 include "mediaServer.thrift"
 
 struct KmsEvent {
+  /** Type of event */
   1: string type,
   2: optional binary data,
   3: mediaServer.MediaObjectRef source
