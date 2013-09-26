@@ -75,13 +75,15 @@ struct MediaObjectRef {
 
 struct Command {
   1: string type,
-  2: optional binary data
+  2: string name,
+  3: optional binary data
 }
 
 typedef Command Params
 
 struct CommandResult {
-  1: optional binary result
+  1: string type,
+  2: optional binary result
 }
 
 service MediaServerService {
