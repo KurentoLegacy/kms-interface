@@ -47,7 +47,7 @@ enum HttpMethod {
   OTHER
 }
 
-struct HttpRequestReceivedData{
+struct HttpRequestReceivedData {
  1: HttpMethod method,
  2: string uri,
  3: list<string> headers

@@ -73,7 +73,6 @@ struct MediaObjectRef {
   3: MediaObjectType type
 }
 
-
 struct Command {
   1: string type, ///Type of the command, which does not need to be uniquely associated to a given payload (data) type
   2: optional binary data
@@ -100,7 +99,7 @@ service MediaServerService {
   
   //Invoke this for receiving events form a MediaObject. This method returns a callbackToken that needs to be used for unsubscribing and that will be present on all events.
   string subscribe(1: MediaObjectRef mediaObjectRef, 2: string eventType, 3: string handlerAddress, 4: i32 handlerPort) throws (1: MediaServerException mse);
-  //Invoke this for stop receiving events form a MediaObject. The parameter callbackToken must much the one returned by subscribe to the listener.
+  //Invoke this for stop receiving events form a MediaObject. The parameter callbackToken must match the one returned by subscribe to the listener.
   void unsubscribe(1: MediaObjectRef mediaObjectRef, 2: string callbackToken) throws (1: MediaServerException mse);
 
   //Send a comand to a media object

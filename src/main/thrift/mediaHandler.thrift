@@ -35,6 +35,6 @@ struct KmsError {
 }
 
 service MediaHandlerService {
-	void onEvent(1: string callbackToken, 2: KmsEvent event);
-	void onError(1: string callbackToken, 2: KmsError error);
+  void onEvent(1: string callbackToken, 2: KmsEvent event);
+  void onError(1: string callbackToken, 2: KmsError error);
 }
