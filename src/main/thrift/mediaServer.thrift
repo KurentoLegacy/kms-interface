@@ -75,16 +75,14 @@ struct MediaObjectRef {
 
 
 struct Command {
-  /** Type of the command */
-  1: string type,
+  1: string type, ///Type of the command, which does not need to be uniquely associated to a given payload (data) type
   2: optional binary data
 }
 
 typedef Command Params
 
 struct CommandResult {
-  /** Type of the data stored in result */
-  1: string dataType,
+  1: string dataType, //Type of the data stored in result
   2: optional binary result
 }
 
