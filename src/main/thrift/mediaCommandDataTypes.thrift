@@ -110,3 +110,19 @@ This command has void (inexistent) data.
 */
 const string STOP = "Stop";
 
+////////////////////////////////////////////////////////////////////////////////
+/**
+This is the data type for string command results
+
+This CommandResult always has result of type String
+*/
+const string STRING_COMMAND_RESULT = "StringCommandResult";
+
+////////////////////////////////////////////////////////////////////////////////
+/**
+This is the data type for void command results
+
+This CommandResult always has void (inexistent) result
+*/
+const string VOID_COMMAND_RESULT = "VoidCommandResult";
+
