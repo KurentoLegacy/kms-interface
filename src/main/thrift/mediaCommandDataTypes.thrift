@@ -64,6 +64,14 @@ const string GET_LOCAL_SDP = "GetLocalSdp";
 
 ////////////////////////////////////////////////////////////////////////////////
 /**
+This command request an SdpEndPoint to provide its remote session description
+
+This command has void (inexistent) data.
+*/
+const string GET_REMOTE_SDP = "GetRemoteSdp";
+
+////////////////////////////////////////////////////////////////////////////////
+/**
 This command request an UriEndPoint to provide its local uri
 
 This command has void (inexistent) data.
