@@ -90,8 +90,7 @@ struct Command {
 typedef Command Params
 
 struct CommandResult {
-  1: string dataType, //Type of the data stored in result
-  2: optional binary result
+  1: optional binary result
 }
 
 service MediaServerService {
