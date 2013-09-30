@@ -111,7 +111,7 @@ service MediaServerService {
   void unsubscribe(1: MediaObjectRef mediaObjectRef, 2: string callbackToken) throws (1: MediaServerException mse);
 
   //Send a comand to a media object
-  CommandResult sendCommand(1: MediaObjectRef mediaObject, 2: Command command) throws (1: MediaServerException mse);
+  CommandResult sendCommand(1: MediaObjectRef mediaObjectRef, 2: Command command) throws (1: MediaServerException mse);
 
   //Returns the parent (object that created it) of a MediaObject
   MediaObjectRef getParent(1: MediaObjectRef mediaObjectRef) throws (1: MediaServerException mse);
