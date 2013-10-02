@@ -21,15 +21,6 @@ const i32 VERSION = 3;
 
 const i32 GARBAGE_PERIOD = 120; //Activation period of the distributed garbage collector in seconds
 
-//Core media element types
-const string HTTP_END_POINT_TYPE = "HttpEndPoint";
-const string RTP_END_POINT_TYPE = "RtpEndPoint";
-const string WEB_RTP_END_POINT_TYPE = "WebRtcEndPoint";
-const string PLAYER_END_POINT_TYPE = "PlayerEndPoint";
-const string RECORDER_END_POINT_TYPE = "RecorderEndPoint";
-const string JACK_VADER_FILTER_TYPE = "JackVaderFilter";
-const string ZBAR_FILTER_TYPE = "ZbarFilter";
-
 typedef i64 ObjectId
 
 //Reserved for internal errors caused by miss-behavior of the media server
@@ -80,16 +71,17 @@ struct MediaObjectRef {
   3: MediaObjectType type
 }
 
-struct Command {
-  1: string type, ///Type of the command, which does not need to be uniquely associated to a given payload (data) type
+struct Params {
+  1: string dataType,
   2: optional binary data
 }
 
-typedef Command Params
-
-struct CommandResult {
-  1: optional binary result
+struct Command {
+  1: string name,
+  2: optional Params params
 }
+
+typedef Params CommandResult
 
 service MediaServerService {
   i32 getVersion();

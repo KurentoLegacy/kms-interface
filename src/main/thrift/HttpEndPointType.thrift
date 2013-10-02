@@ -17,24 +17,16 @@ namespace java com.kurento.kms.thrift.api
 namespace cpp kurento
 namespace * Kurento
 
-include "mediaServer.thrift"
+/**
+ * PlayerEndPoint extends MediaSessionEndPoint
+ */
+const string TYPE_NAME = "HttpEndPoint";
 
-typedef mediaServer.Params EventData
+/* COMMANDS */
 
-struct KmsEvent {
-  1: string type,
-  2: mediaServer.MediaObjectRef source,
-  3: optional EventData eventData
-}
+/**
+This command requests an UriEndPoint to provide its associated URL.
 
-struct KmsError {
-  1: string type,
-  2: string description,
-  3: i32 errorCode
-  4: mediaServer.MediaObjectRef source
-}
-
-service MediaHandlerService {
-  void onEvent(1: string callbackToken, 2: KmsEvent event);
-  void onError(1: string callbackToken, 2: KmsError error);
-}
+String getUrl ();
+*/
+const string GET_URL = "getUrl";

@@ -17,24 +17,43 @@ namespace java com.kurento.kms.thrift.api
 namespace cpp kurento
 namespace * Kurento
 
-include "mediaServer.thrift"
+/**
+ * Abstract Type (no instantiable)
+ */
 
-typedef mediaServer.Params EventData
+/* COMMANDS */
 
-struct KmsEvent {
-  1: string type,
-  2: mediaServer.MediaObjectRef source,
-  3: optional EventData eventData
-}
+/**
+This command requests an UriEndPoint to provide its local uri
 
-struct KmsError {
-  1: string type,
-  2: string description,
-  3: i32 errorCode
-  4: mediaServer.MediaObjectRef source
-}
+String getUri ();
+*/
+const string GET_URI = "getUri";
 
-service MediaHandlerService {
-  void onEvent(1: string callbackToken, 2: KmsEvent event);
-  void onError(1: string callbackToken, 2: KmsError error);
-}
+/**
+This command requests an UriEndPoint assing its Uri
+
+void setUri (String uri);
+*/
+const string SET_URI = "setUri";
+
+/**
+This command requests an UriEndPoint to start its media operation (ex. play)
+
+void start ();
+*/
+const string START = "start";
+
+/**
+This command requests an UriEndPoint to pause
+
+void pause ();
+*/
+const string PAUSE = "pause";
+
+/**
+This command requests an UriEndPoint to stop its media operation
+
+void stop ();
+*/
+const string STOP = "stop";

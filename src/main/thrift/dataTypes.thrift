@@ -17,24 +17,13 @@ namespace java com.kurento.kms.thrift.api
 namespace cpp kurento
 namespace * Kurento
 
-include "mediaServer.thrift"
+/* BASE TYPES */
 
-typedef mediaServer.Params EventData
-
-struct KmsEvent {
-  1: string type,
-  2: mediaServer.MediaObjectRef source,
-  3: optional EventData eventData
-}
-
-struct KmsError {
-  1: string type,
-  2: string description,
-  3: i32 errorCode
-  4: mediaServer.MediaObjectRef source
-}
-
-service MediaHandlerService {
-  void onEvent(1: string callbackToken, 2: KmsEvent event);
-  void onError(1: string callbackToken, 2: KmsError error);
-}
+const string VOID_DATA_TYPE = "V";
+const string BOOL_DATA_TYPE = "Z";
+const string BYTE_DATA_TYPE = "B";
+const string I16_DATA_TYPE = "I16";
+const string I32_DATA_TYPE = "I32";
+const string I64_DATA_TYPE = "I64";
+const string DOUBLE_DATA_TYPE = "D";
+const string STRING_DATA_TYPE = "S";
