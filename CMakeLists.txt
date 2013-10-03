@@ -41,20 +41,11 @@ FILE(GLOB THRIFT_FILES ${THRIFT_FILES_DIR}/*.thrift)
 function(get_base_name thrift_file out_base_name)
 	STRING(REGEX REPLACE "[/]+(([^/]+)[/]+)+(.*).thrift\$" "\\3" base_name "${thrift_file}")
 	SET(${out_base_name} ${base_name} PARENT_SCOPE)
-
-	if (NOT ${ARGV2} EQUAL "")
-		#Proccess the base name in camel case
-		STRING(SUBSTRING ${base_name} 0 1 head)
-		STRING(SUBSTRING ${base_name} 1 -1 tail)
-		STRING(TOUPPER ${head} upper_head)
-
-		SET(${ARGV2} "${upper_head}${tail}" PARENT_SCOPE)
-	endif(NOT ${ARGV2} EQUAL "")
 endfunction(get_base_name)
 
 FOREACH(THRIFT_FILE ${THRIFT_FILES})
 	SET(CUR_GEN_CPP_FILES "")
-	get_base_name(${THRIFT_FILE} BASE_NAME BASE_NAME_CAMEL)
+	get_base_name(${THRIFT_FILE} BASE_NAME)
 	MESSAGE(STATUS "Processing thrift file: ${BASE_NAME}.thrift")
 
 	SET(CPP_FILE "${GEN_FILES_DIR}/${BASE_NAME}_types.cpp")
@@ -67,13 +58,19 @@ FOREACH(THRIFT_FILE ${THRIFT_FILES})
 	SET(H_FILE "${GEN_FILES_DIR}/${BASE_NAME}_constants.h")
 	SET(GEN_H_FILES ${GEN_H_FILES} "${H_FILE}")
 
-	IF(NOT ${BASE_NAME} MATCHES ".*Type|.*Types|.*Codes")
-		SET(CPP_FILE "${GEN_FILES_DIR}/${BASE_NAME_CAMEL}Service.cpp")
+	execute_process(COMMAND grep service ${THRIFT_FILE}
+			COMMAND cut -d " " -f 2
+			OUTPUT_VARIABLE SERVICE_NAME)
+
+	IF(NOT ${SERVICE_NAME} EQUAL "")
+		STRING(REPLACE "\n" "" SERVICE_NAME ${SERVICE_NAME})
+		MESSAGE (STATUS "Found service: ${SERVICE_NAME}")
+		SET(CPP_FILE "${GEN_FILES_DIR}/${SERVICE_NAME}.cpp")
 		SET(CUR_GEN_CPP_FILES ${CUR_GEN_CPP_FILES} "${CPP_FILE}")
 
-		SET(H_FILE "${GEN_FILES_DIR}/${BASE_NAME_CAMEL}Service.h")
+		SET(H_FILE "${GEN_FILES_DIR}/${SERVICE_NAME}.h")
 		SET(GEN_H_FILES ${GEN_H_FILES} "${H_FILE}")
-	ENDIF(NOT ${BASE_NAME} MATCHES ".*Type|.*Types|.*Codes")
+	ENDIF(NOT ${SERVICE_NAME} EQUAL "")
 
 	SET(GEN_CPP_FILES ${GEN_CPP_FILES} ${CUR_GEN_CPP_FILES})
 
