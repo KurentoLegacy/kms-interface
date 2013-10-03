@@ -17,19 +17,24 @@ namespace java com.kurento.kms.thrift.api
 namespace cpp kurento
 namespace * Kurento
 
-const string TYPE_NAME = "ZBarFilter";
+include "KmsMediaServer.thrift"
 
-/* EVENTS */
+typedef KmsMediaServer.KmsMediaParams KmsMediaEventData
 
-/**
-This event is generated when a new code (Bar code, QR code, etc.) is found.
-
-This event has string data type.
-*/
-const string EVENT_CODE_FOUND = "CodeFound";
-const string EVENT_CODE_FOUND_DATA_TYPE = "EventCodeFoundData";
-
-struct EventCodeFoundData {
+struct KmsMediaEvent {
   1: string type,
-  2: string value
+  2: KmsMediaServer.KmsMediaObjectRef source,
+  3: optional KmsMediaEventData eventData
+}
+
+struct KmsMediaError {
+  1: string type,
+  2: string description,
+  3: i32 errorCode
+  4: KmsMediaServer.KmsMediaObjectRef source
+}
+
+service KmsMediaHandlerService {
+  void onEvent(1: string callbackToken, 2: KmsMediaEvent event);
+  void onError(1: string callbackToken, 2: KmsMediaError error);
 }
