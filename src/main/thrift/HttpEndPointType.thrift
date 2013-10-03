@@ -18,7 +18,7 @@ namespace cpp kurento
 namespace * Kurento
 
 /**
- * PlayerEndPoint extends MediaSessionEndPoint
+ * HttpEndPoint extends MediaSessionEndPoint
  */
 const string TYPE_NAME = "HttpEndPoint";
 
