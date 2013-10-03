@@ -13,7 +13,7 @@ MESSAGE(STATUS "Thrift found: ${THRIFT_EXEC}")
 
 find_package(PkgConfig)
 
-pkg_check_modules(THRIFT REQUIRED thrift>=0.9.0)
+pkg_check_modules(THRIFT REQUIRED thrift=0.9.0)
 
 if(EXISTS "${CMAKE_SOURCE_DIR}/.git")
 	execute_process(COMMAND git describe --abbrev=6 --tags --dirty --always
