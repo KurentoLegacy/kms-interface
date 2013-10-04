@@ -78,7 +78,7 @@ struct KmsMediaParams {
 
 struct KmsMediaCommand {
   1: string name,
-  2: optional KmsMediaParams params
+  2: KmsMediaParams params
 }
 
 typedef KmsMediaParams KmsMediaCommandResult
