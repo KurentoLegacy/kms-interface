@@ -36,7 +36,7 @@ struct KmsMediaHttpEndPointConstructorParams {
 /* COMMANDS */
 
 /**
-This command requests an UriEndPoint to provide its associated URL.
+This command requests an HttpEndPoint to provide its associated URL.
 
 String getUrl ();
 */
