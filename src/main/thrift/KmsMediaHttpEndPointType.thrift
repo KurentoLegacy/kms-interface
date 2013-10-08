@@ -19,8 +19,19 @@ namespace * Kurento
 
 /**
  * HttpEndPoint extends MediaSessionEndPoint
+ * 
+ * Constructors:
+ * HttpEndPoint ();
+ * HttpEndPoint (KmsMediaHttpEndPointConstructorParams);
  */
 const string TYPE_NAME = "HttpEndPoint";
+
+const string CONSTRUCTOR_PARAMS_DATA_TYPE = "KmsMediaHttpEndPointConstructorParams";
+
+struct KmsMediaHttpEndPointConstructorParams {
+  1: optional i32 cookieLifetime,
+  2: optional i32 disconnectionTimeout
+}
 
 /* COMMANDS */
 
