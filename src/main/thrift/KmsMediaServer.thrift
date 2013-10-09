@@ -132,6 +132,7 @@ service KmsMediaServerService {
   list<KmsMediaObjectRef> getMediaSinksByMediaType(1: KmsMediaObjectRef mediaElement, 2: KmsMediaType mediaType) throws (1: KmsMediaServerException mse);
   list<KmsMediaObjectRef> getMediaSrcsByFullDescription(1: KmsMediaObjectRef mediaElement, 2: KmsMediaType mediaType, 3: string description) throws (1: KmsMediaServerException mse);
   list<KmsMediaObjectRef> getMediaSinksByFullDescription(1: KmsMediaObjectRef mediaElement, 2: KmsMediaType mediaType, 3: string description) throws (1: KmsMediaServerException mse);
+  void connectElements(1: KmsMediaObjectRef srcMediaElement, 2: KmsMediaObjectRef sinkMediaElement) throws (1: KmsMediaServerException mse);
 
   /////////////////////////////////////////////////////////////////////////////////
   // Methods associated to MediaPad objects
