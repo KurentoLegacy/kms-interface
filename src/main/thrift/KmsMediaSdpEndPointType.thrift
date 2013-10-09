@@ -18,7 +18,7 @@ namespace cpp kurento
 namespace * Kurento
 
 /**
- * Abstract Type (no instantiable)
+ * Abstract Type (non instantiable)
  * SdpEndPoint extends MediaSessionEndPoint
  */
 

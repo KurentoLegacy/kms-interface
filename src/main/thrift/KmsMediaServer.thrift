@@ -78,7 +78,7 @@ struct KmsMediaParams {
 
 struct KmsMediaCommand {
   1: string name,
-  2: KmsMediaParams params
+  2: map<string, KmsMediaParams> params
 }
 
 typedef KmsMediaParams KmsMediaCommandResult
@@ -117,11 +117,11 @@ service KmsMediaServerService {
   // Methods associated to MediaPipeline object
   /////////////////////////////////////////////////////////////////////////////////
   KmsMediaObjectRef createMediaPipeline() throws (1: KmsMediaServerException mse);
-  KmsMediaObjectRef createMediaPipelineWithParams(1: KmsMediaParams params) throws (1: KmsMediaServerException mse);
+  KmsMediaObjectRef createMediaPipelineWithParams(1: map<string, KmsMediaParams> params) throws (1: KmsMediaServerException mse);
   KmsMediaObjectRef createMediaElement(1: KmsMediaObjectRef mediaPipeline, 2: string elementType) throws (1: KmsMediaServerException mse);
-  KmsMediaObjectRef createMediaElementWithParams(1: KmsMediaObjectRef mediaPipeline, 2: string elementType, 3: KmsMediaParams params) throws (1: KmsMediaServerException mse);
+  KmsMediaObjectRef createMediaElementWithParams(1: KmsMediaObjectRef mediaPipeline, 2: string elementType, 3: map<string, KmsMediaParams> params) throws (1: KmsMediaServerException mse);
   KmsMediaObjectRef createMediaMixer(1: KmsMediaObjectRef mediaPipeline, 2: string mixerType) throws (1: KmsMediaServerException mse);
-  KmsMediaObjectRef createMediaMixerWithParams(1: KmsMediaObjectRef mediaPipeline, 2: string mixerType, 3: KmsMediaParams params) throws (1: KmsMediaServerException mse);
+  KmsMediaObjectRef createMediaMixerWithParams(1: KmsMediaObjectRef mediaPipeline, 2: string mixerType, 3: map<string, KmsMediaParams> params) throws (1: KmsMediaServerException mse);
 
   /////////////////////////////////////////////////////////////////////////////////
   // Methods associated to MediaElement objects
@@ -147,5 +147,5 @@ service KmsMediaServerService {
   // Methods associated to Mixer objects
   /////////////////////////////////////////////////////////////////////////////////
   KmsMediaObjectRef createMixerEndPoint(1: KmsMediaObjectRef mixer) throws (1: KmsMediaServerException mse);
-  KmsMediaObjectRef createMixerEndPointWithParams(1: KmsMediaObjectRef mixer, 2: KmsMediaParams params) throws (1: KmsMediaServerException mse);
+  KmsMediaObjectRef createMixerEndPointWithParams(1: KmsMediaObjectRef mixer, 2: map<string, KmsMediaParams> params) throws (1: KmsMediaServerException mse);
 }

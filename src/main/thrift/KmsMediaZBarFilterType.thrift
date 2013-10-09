@@ -17,6 +17,9 @@ namespace java com.kurento.kms.thrift.api
 namespace cpp kurento
 namespace * Kurento
 
+/**
+ * ZBarFilter Extends KmsMediaObject
+ */
 const string TYPE_NAME = "ZBarFilter";
 
 /* EVENTS */
