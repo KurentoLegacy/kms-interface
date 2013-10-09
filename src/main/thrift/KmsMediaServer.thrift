@@ -95,9 +95,9 @@ service KmsMediaServerService {
   //Explicity release a MediaObject form memory. All its descendants will be also released and collected.
   void release(1: KmsMediaObjectRef mediaObjectRef) throws (1: KmsMediaServerException mse);
 
-  //Invoke this for receiving events form a MediaObject. This method returns a callbackToken that needs to be used for unsubscribing and that will be present on all events.
+  //Invoke this for receiving events from a MediaObject. This method returns a callbackToken that needs to be used for unsubscribing and that will be present on all events.
   string subscribe(1: KmsMediaObjectRef mediaObjectRef, 2: string eventType, 3: string handlerAddress, 4: i32 handlerPort) throws (1: KmsMediaServerException mse);
-  //Invoke this for stop receiving events form a MediaObject. The parameter callbackToken must match the one returned by subscribe to the listener.
+  //Invoke this for stop receiving events from a MediaObject. The parameter callbackToken must match the one returned by subscribe method.
   void unsubscribe(1: KmsMediaObjectRef mediaObjectRef, 2: string callbackToken) throws (1: KmsMediaServerException mse);
 
   //Send a comand to a media object
