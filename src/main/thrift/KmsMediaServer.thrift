@@ -96,9 +96,14 @@ service KmsMediaServerService {
   void release(1: KmsMediaObjectRef mediaObjectRef) throws (1: KmsMediaServerException mse);
 
   //Invoke this for receiving events from a MediaObject. This method returns a callbackToken that needs to be used for unsubscribing and that will be present on all events.
-  string subscribe(1: KmsMediaObjectRef mediaObjectRef, 2: string eventType, 3: string handlerAddress, 4: i32 handlerPort) throws (1: KmsMediaServerException mse);
+  string subscribeEvent(1: KmsMediaObjectRef mediaObjectRef, 2: string eventType, 3: string handlerAddress, 4: i32 handlerPort) throws (1: KmsMediaServerException mse);
   //Invoke this for stop receiving events from a MediaObject. The parameter callbackToken must match the one returned by subscribe method.
-  void unsubscribe(1: KmsMediaObjectRef mediaObjectRef, 2: string callbackToken) throws (1: KmsMediaServerException mse);
+  void unsubscribeEvent(1: KmsMediaObjectRef mediaObjectRef, 2: string callbackToken) throws (1: KmsMediaServerException mse);
+
+  //Invoke this for receiving error notifications from a MediObject. This method returns a callbackToken that needs to be used for unsubscribing and that will be present on all notifications.
+  string subscribeError(1: KmsMediaObjectRef mediaObjectRef, 2: string handlerAddress, 3: i32 handlerPort) throws (1: KmsMediaServerException mse);
+  //Invoke this for stop receiving error notifications from a MediaObject. The parameter callbackToken must match the one returned by errorSubscribe method.
+  void unsubscribeError(1: KmsMediaObjectRef mediaObjectRef, 2: string callbackToken) throws (1: KmsMediaServerException mse);
 
   //Send a comand to a media object
   KmsMediaCommandResult sendCommand(1: KmsMediaObjectRef mediaObjectRef, 2: KmsMediaCommand command) throws (1: KmsMediaServerException mse);
