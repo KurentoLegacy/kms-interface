@@ -20,7 +20,17 @@ namespace * Kurento
 /**
  * Abstract Type (non instantiable)
  * UriEndPoint extends KmsMediaObject
+ *
+ * Constructors:
+ * UriEndPoint (KmsMediaUriEndPointConstructorParams);
+ * UriEndPoint (KmsMediaUriEndPointConstructorParams, KmsMediaObjectConstructorParams);
  */
+
+const string CONSTRUCTOR_PARAMS_DATA_TYPE = "KmsMediaUriEndPointConstructorParams";
+
+struct KmsMediaUriEndPointConstructorParams {
+  1: string uri
+}
 
 /* COMMANDS */
 
@@ -37,6 +47,7 @@ This command requests an UriEndPoint assing its Uri
 void setUri (String uri);
 */
 const string SET_URI = "setUri";
+const string SET_URI_PARAM_URI_STR = "uri";
 
 /**
 This command requests an UriEndPoint to start its media operation (ex. play)

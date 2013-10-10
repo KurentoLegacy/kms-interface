@@ -20,6 +20,9 @@ namespace * Kurento
 /**
  * Abstract Type (non instantiable)
  * SdpEndPoint extends MediaSessionEndPoint
+ *
+ * Constructors:
+ * SdpEndPoint (KmsMediaObjectConstructorParams);
  */
 
 /* COMMANDS */
@@ -48,13 +51,15 @@ const string GENERATE_SDP_OFFER = "generateSdpOffer";
 /**
 This command requests a SdpEndPoint to process an offer.
 
-String processSdpOffer (String sdpOffer);
+String processSdpOffer (String offer);
 */
 const string PROCESS_SDP_OFFER = "processSdpOffer";
+const string PROCESS_SDP_OFFER_PARAM_OFFER_STR = "offer";
 
 /**
 This command requests a SdpEndPoint to process an answer.
 
-String processSdpAnswer (String sdpAnswer);
+String processSdpAnswer (String answer);
 */
 const string PROCESS_SDP_ANSWER = "processSdpAnswer";
+const string PROCESS_SDP_ANSWER_PARAM_ANSWER_STR = "answer";

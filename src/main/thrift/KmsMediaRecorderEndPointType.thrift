@@ -19,5 +19,9 @@ namespace * Kurento
 
 /**
  * RecorderEndPoint extends UriEndPoint
+ *
+ * Constructors:
+ * RecorderEndPoint (KmsMediaUriEndPointConstructorParams);
+ * RecorderEndPoint (KmsMediaUriEndPointConstructorParams, KmsMediaObjectConstructorParams);
  */
 const string TYPE_NAME = "RecorderEndPoint";

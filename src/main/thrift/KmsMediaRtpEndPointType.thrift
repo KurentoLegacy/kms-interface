@@ -19,5 +19,8 @@ namespace * Kurento
 
 /**
  * RtpEndPoint extends SdpEndPoint
+ *
+ * Constructors:
+ * RtpEndPoint (KmsMediaObjectConstructorParams);
  */
 const string TYPE_NAME = "RtpEndPoint";

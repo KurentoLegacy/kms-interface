@@ -71,17 +71,12 @@ struct KmsMediaObjectRef {
   3: KmsMediaObjectType objectType
 }
 
-struct KmsMediaParams {
+struct KmsMediaParam {
   1: string dataType,
   2: optional binary data
 }
 
-struct KmsMediaCommand {
-  1: string name,
-  2: map<string, KmsMediaParams> params
-}
-
-typedef KmsMediaParams KmsMediaCommandResult
+typedef KmsMediaParam KmsMediaInvocationReturn
 
 service KmsMediaServerService {
   i32 getVersion();
@@ -106,7 +101,7 @@ service KmsMediaServerService {
   void unsubscribeError(1: KmsMediaObjectRef mediaObjectRef, 2: string callbackToken) throws (1: KmsMediaServerException mse);
 
   //Send a comand to a media object
-  KmsMediaCommandResult sendCommand(1: KmsMediaObjectRef mediaObjectRef, 2: KmsMediaCommand command) throws (1: KmsMediaServerException mse);
+  KmsMediaInvocationReturn invoke(1: KmsMediaObjectRef mediaObjectRef, 2: string command, 3: map<string, KmsMediaParam> params) throws (1: KmsMediaServerException mse);
 
   //Returns the parent (object that created it) of a MediaObject
   KmsMediaObjectRef getParent(1: KmsMediaObjectRef mediaObjectRef) throws (1: KmsMediaServerException mse);
@@ -117,11 +112,11 @@ service KmsMediaServerService {
   // Methods associated to MediaPipeline object
   /////////////////////////////////////////////////////////////////////////////////
   KmsMediaObjectRef createMediaPipeline() throws (1: KmsMediaServerException mse);
-  KmsMediaObjectRef createMediaPipelineWithParams(1: map<string, KmsMediaParams> params) throws (1: KmsMediaServerException mse);
+  KmsMediaObjectRef createMediaPipelineWithParams(1: map<string, KmsMediaParam> params) throws (1: KmsMediaServerException mse);
   KmsMediaObjectRef createMediaElement(1: KmsMediaObjectRef mediaPipeline, 2: string elementType) throws (1: KmsMediaServerException mse);
-  KmsMediaObjectRef createMediaElementWithParams(1: KmsMediaObjectRef mediaPipeline, 2: string elementType, 3: map<string, KmsMediaParams> params) throws (1: KmsMediaServerException mse);
+  KmsMediaObjectRef createMediaElementWithParams(1: KmsMediaObjectRef mediaPipeline, 2: string elementType, 3: map<string, KmsMediaParam> params) throws (1: KmsMediaServerException mse);
   KmsMediaObjectRef createMediaMixer(1: KmsMediaObjectRef mediaPipeline, 2: string mixerType) throws (1: KmsMediaServerException mse);
-  KmsMediaObjectRef createMediaMixerWithParams(1: KmsMediaObjectRef mediaPipeline, 2: string mixerType, 3: map<string, KmsMediaParams> params) throws (1: KmsMediaServerException mse);
+  KmsMediaObjectRef createMediaMixerWithParams(1: KmsMediaObjectRef mediaPipeline, 2: string mixerType, 3: map<string, KmsMediaParam> params) throws (1: KmsMediaServerException mse);
 
   /////////////////////////////////////////////////////////////////////////////////
   // Methods associated to MediaElement objects
@@ -147,5 +142,5 @@ service KmsMediaServerService {
   // Methods associated to Mixer objects
   /////////////////////////////////////////////////////////////////////////////////
   KmsMediaObjectRef createMixerEndPoint(1: KmsMediaObjectRef mixer) throws (1: KmsMediaServerException mse);
-  KmsMediaObjectRef createMixerEndPointWithParams(1: KmsMediaObjectRef mixer, 2: map<string, KmsMediaParams> params) throws (1: KmsMediaServerException mse);
+  KmsMediaObjectRef createMixerEndPointWithParams(1: KmsMediaObjectRef mixer, 2: map<string, KmsMediaParam> params) throws (1: KmsMediaServerException mse);
 }

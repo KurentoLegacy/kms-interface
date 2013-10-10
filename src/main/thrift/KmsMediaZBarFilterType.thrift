@@ -19,6 +19,9 @@ namespace * Kurento
 
 /**
  * ZBarFilter Extends KmsMediaObject
+ *
+ * Constructors:
+ * ZBarFilter (KmsMediaObjectConstructorParams);
  */
 const string TYPE_NAME = "ZBarFilter";
 

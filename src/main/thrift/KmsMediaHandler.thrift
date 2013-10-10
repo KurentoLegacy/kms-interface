@@ -19,7 +19,7 @@ namespace * Kurento
 
 include "KmsMediaServer.thrift"
 
-typedef KmsMediaServer.KmsMediaParams KmsMediaEventData
+typedef KmsMediaServer.KmsMediaParam KmsMediaEventData
 
 struct KmsMediaEvent {
   1: string type,

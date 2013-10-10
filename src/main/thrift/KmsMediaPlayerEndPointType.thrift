@@ -19,6 +19,10 @@ namespace * Kurento
 
 /**
  * PlayerEndPoint extends UriEndPoint
+ *
+ * Constructors:
+ * PlayerEndPoint (KmsMediaUriEndPointConstructorParams);
+ * PlayerEndPoint (KmsMediaUriEndPointConstructorParams, KmsMediaObjectConstructorParams);
  */
 const string TYPE_NAME = "PlayerEndPoint";
 

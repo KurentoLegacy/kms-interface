@@ -20,6 +20,9 @@ namespace * Kurento
 /**
  * Abstract Type (non instantiable)
  * SessionEndPoint extends KmsMediaObject
+ *
+ * Constructors:
+ * SessionEndPoint (KmsMediaObjectConstructorParams);
  */
 
 /* EVENTS */

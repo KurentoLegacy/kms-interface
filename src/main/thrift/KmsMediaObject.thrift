@@ -19,6 +19,9 @@ namespace * Kurento
 
 /**
  * Abstract base type. All other elements should extend form this class.
+ *
+ * Constructors:
+ * MediaObject(KmsMediaObjectConstructorParams);
  */
 
 const string CONSTRUCTOR_PARAMS_DATA_TYPE = "KmsMediaObjectConstructorParams";

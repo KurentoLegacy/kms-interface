@@ -19,5 +19,8 @@ namespace * Kurento
 
 /**
  * WebRtcEndPoint extends SdpEndPoint
+ *
+ * Constructors:
+ * WebRtcEndPoint (KmsMediaObjectConstructorParams);
  */
 const string TYPE_NAME = "WebRtcEndPoint";
