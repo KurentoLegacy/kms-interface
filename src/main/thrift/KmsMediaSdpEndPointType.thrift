@@ -25,31 +25,31 @@ namespace * Kurento
  * SdpEndPoint (KmsMediaObjectConstructorParams);
  */
 
-/* COMMANDS */
+/* METHODS */
 
 /**
-This command requests a SdpEndPoint to provide its local session description.
+This method requests a SdpEndPoint to provide its local session description.
 
 String getLocalSdp ();
 */
 const string GET_LOCAL_SDP = "getLocalSdp";
 
 /**
-This command requests a SdpEndPoint to provide its remote session description.
+This method requests a SdpEndPoint to provide its remote session description.
 
 String getRemoteSdp ();
 */
 const string GET_REMOTE_SDP = "getRemoteSdp";
 
 /**
-This command requests a SdpEndPoint to generate an offer.
+This method requests a SdpEndPoint to generate an offer.
 
 String generateSdpOffer ();
 */
 const string GENERATE_SDP_OFFER = "generateSdpOffer";
 
 /**
-This command requests a SdpEndPoint to process an offer.
+This method requests a SdpEndPoint to process an offer.
 
 String processSdpOffer (String offer);
 */
@@ -57,7 +57,7 @@ const string PROCESS_SDP_OFFER = "processSdpOffer";
 const string PROCESS_SDP_OFFER_PARAM_OFFER_STR = "offer";
 
 /**
-This command requests a SdpEndPoint to process an answer.
+This method requests a SdpEndPoint to process an answer.
 
 String processSdpAnswer (String answer);
 */

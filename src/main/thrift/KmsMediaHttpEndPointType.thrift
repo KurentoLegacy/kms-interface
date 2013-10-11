@@ -19,7 +19,7 @@ namespace * Kurento
 
 /**
  * HttpEndPoint extends MediaSessionEndPoint
- * 
+ *
  * Constructors:
  * HttpEndPoint ();
  * HttpEndPoint (KmsMediaHttpEndPointConstructorParams);
@@ -35,10 +35,10 @@ struct KmsMediaHttpEndPointConstructorParams {
   2: optional i32 disconnectionTimeout
 }
 
-/* COMMANDS */
+/* METHODS */
 
 /**
-This command requests an HttpEndPoint to provide its associated URL.
+This method requests an HttpEndPoint to provide its associated URL.
 
 String getUrl ();
 */

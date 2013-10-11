@@ -32,17 +32,17 @@ struct KmsMediaUriEndPointConstructorParams {
   1: string uri
 }
 
-/* COMMANDS */
+/* METHODS */
 
 /**
-This command requests an UriEndPoint to provide its local uri
+This method requests an UriEndPoint to provide its local uri
 
 String getUri ();
 */
 const string GET_URI = "getUri";
 
 /**
-This command requests an UriEndPoint assing its Uri
+This method requests an UriEndPoint assing its Uri
 
 void setUri (String uri);
 */
@@ -50,21 +50,21 @@ const string SET_URI = "setUri";
 const string SET_URI_PARAM_URI_STR = "uri";
 
 /**
-This command requests an UriEndPoint to start its media operation (ex. play)
+This method requests an UriEndPoint to start its media operation (ex. play)
 
 void start ();
 */
 const string START = "start";
 
 /**
-This command requests an UriEndPoint to pause
+This method requests an UriEndPoint to pause
 
 void pause ();
 */
 const string PAUSE = "pause";
 
 /**
-This command requests an UriEndPoint to stop its media operation
+This method requests an UriEndPoint to stop its media operation
 
 void stop ();
 */

@@ -100,8 +100,8 @@ service KmsMediaServerService {
   //Invoke this for stop receiving error notifications from a MediaObject. The parameter callbackToken must match the one returned by errorSubscribe method.
   void unsubscribeError(1: KmsMediaObjectRef mediaObjectRef, 2: string callbackToken) throws (1: KmsMediaServerException mse);
 
-  //Send a comand to a media object
-  KmsMediaInvocationReturn invoke(1: KmsMediaObjectRef mediaObjectRef, 2: string command, 3: map<string, KmsMediaParam> params) throws (1: KmsMediaServerException mse);
+  //Invoke a method in a mediaObject
+  KmsMediaInvocationReturn invoke(1: KmsMediaObjectRef mediaObjectRef, 2: string methodName, 3: map<string, KmsMediaParam> params) throws (1: KmsMediaServerException mse);
 
   //Returns the parent (object that created it) of a MediaObject
   KmsMediaObjectRef getParent(1: KmsMediaObjectRef mediaObjectRef) throws (1: KmsMediaServerException mse);
