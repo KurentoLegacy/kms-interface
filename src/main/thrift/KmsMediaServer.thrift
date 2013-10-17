@@ -17,9 +17,9 @@ namespace java com.kurento.kms.thrift.api
 namespace cpp kurento
 namespace * Kurento
 
-const i32 VERSION = 3;
+const i32 VERSION = 4;
 
-const i32 GARBAGE_PERIOD = 120; //Activation period of the distributed garbage collector in seconds
+const i32 DEFAULT_GARBAGE_COLLECTOR_PERIOD = 120; //Activation period of the distributed garbage collector in seconds
 
 typedef i64 KmsMediaObjectId
 

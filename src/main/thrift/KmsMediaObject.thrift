@@ -27,5 +27,6 @@ namespace * Kurento
 const string CONSTRUCTOR_PARAMS_DATA_TYPE = "KmsMediaObjectConstructorParams";
 
 struct KmsMediaObjectConstructorParams {
-  1: optional bool excludeFromGC
+  1: optional bool excludeFromGC,
+  2: optional i32 garbageCollectorPeriod
 }
