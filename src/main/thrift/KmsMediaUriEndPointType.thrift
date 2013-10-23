@@ -42,14 +42,6 @@ String getUri ();
 const string GET_URI = "getUri";
 
 /**
-This method requests an UriEndPoint assing its Uri
-
-void setUri (String uri);
-*/
-const string SET_URI = "setUri";
-const string SET_URI_PARAM_URI_STR = "uri";
-
-/**
 This method requests an UriEndPoint to start its media operation (ex. play)
 
 void start ();
