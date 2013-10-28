@@ -17,45 +17,45 @@ namespace java com.kurento.kms.thrift.api
 namespace cpp kurento
 namespace * Kurento
 
-struct KmsMediaPointerDetectorButton {
-  1: required i32 upRightCornerX,
-  2: required i32 upRightCornerY,
+struct KmsMediaPointerDetectorWindow {
+  1: required i32 topRightCornerX,
+  2: required i32 topRightCornerY,
   3: required i32 width,
   4: required i32 height,
-  5: required string windowID
+  5: required string id
 }
 
-typedef list<KmsMediaPointerDetectorButton> KmsMediaPointerDetectorButtonList
+typedef set<KmsMediaPointerDetectorWindow> KmsMediaPointerDetectorWindowSet
 /**
  * PointerDetectorFilter Extends KmsMediaObject
  *
  * Constructors:
  * PointerDetectorFilter (KmsMediaObjectConstructorParams);
- * PointerDetectorFilter (KmsMediaObjectConstructorParams, KmsMediaPointerDetectorButtonList);
+ * PointerDetectorFilter (KmsMediaObjectConstructorParams, KmsMediaPointerDetectorWindowSet);
  */
 const string TYPE_NAME = "PointerDetectorFilter";
-const string CONSTRUCTOR_PARAMS_DATA_TYPE = "KmsMediaPointerDetectorButtonList";
+const string CONSTRUCTOR_PARAMS_DATA_TYPE = "KmsMediaPointerDetectorWindowSet";
 
 /* METHODS */
 /**
- * This method allows to define a new button window.
- * void addWindow (KmsMediaPointerDetectorButton buttonProperty);
+ * This method allows to define a new window.
+ * void addWindow (KmsMediaPointerDetectorWindow window);
  */
 const string ADD_NEW_WINDOW = "addWindow";
-const string ADD_NEW_WINDOW_PARAM_BUTTON_PROPERTY= "buttonProperty";
+const string ADD_NEW_WINDOW_PARAM_WINDOW= "window";
 
 /**
- * This method allows to remove a existing button window.
+ * This method allows to remove an existing window.
  * void removeWindow (string windowID);
  */
 const string REMOVE_WINDOW = "removeWindow";
 const string REMOVE_WINDOW_PARAM_WINDOW_ID = "windowID";
 
 /**
- * This method allows to clear all existing button windows.
+ * This method allows to clear all existing windows.
  * void clearWindows ();
  */
-const string CLEAR_WINDOW = "clearWindows";
+const string CLEAR_WINDOWS = "clearWindows";
 
 /* EVENTS */
 
