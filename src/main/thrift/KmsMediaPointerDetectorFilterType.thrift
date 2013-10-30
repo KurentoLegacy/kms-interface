@@ -25,7 +25,10 @@ struct KmsMediaPointerDetectorWindow {
   5: required string id
 }
 
-typedef set<KmsMediaPointerDetectorWindow> KmsMediaPointerDetectorWindowSet
+struct KmsMediaPointerDetectorWindowSet {
+  1: required set<KmsMediaPointerDetectorWindow> windows;
+}
+
 /**
  * PointerDetectorFilter Extends KmsMediaObject
  *
