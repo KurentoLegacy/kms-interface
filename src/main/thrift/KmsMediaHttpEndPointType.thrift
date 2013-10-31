@@ -43,3 +43,14 @@ This method requests an HttpEndPoint to provide its associated URL.
 String getUrl ();
 */
 const string GET_URL = "getUrl";
+
+/* EVENTS */
+
+/**
+ * This event is raised when an End of Stream is detected at the input of this element
+ * if this element is not live it will also terminate the HTTP Session closing the
+ * connection with the client
+ *
+ * This event has void (inexistent) data
+ */
+const string EVENT_EOS_DETECTED = "EOS_DETECTED";
