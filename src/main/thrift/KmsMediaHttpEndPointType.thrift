@@ -32,7 +32,7 @@ const string CONSTRUCTOR_PARAMS_DATA_TYPE = "KmsMediaHttpEndPointConstructorPara
 
 struct KmsMediaHttpEndPointConstructorParams {
   2: optional i32 disconnectionTimeout
-  3: optional bool live
+  3: optional bool terminateOnEOS
 }
 
 /* METHODS */
