@@ -17,11 +17,22 @@ namespace java com.kurento.kms.thrift.api
 namespace cpp kurento
 namespace * Kurento
 
+include "KmsMediaRecordingProfile.thrift"
+
 /**
  * RecorderEndPoint extends UriEndPoint
  *
  * Constructors:
  * RecorderEndPoint (KmsMediaUriEndPointConstructorParams);
  * RecorderEndPoint (KmsMediaUriEndPointConstructorParams, KmsMediaObjectConstructorParams);
+ * RecorderEndPoint (KmsMediaUriEndPointConstructorParams, KmsMediaRecoderEndPointConstructorParams);
+ * RecorderEndPoint (KmsMediaUriEndPointConstructorParams, KmsMediaObjectConstructorParams,
+ *                   KmsMediaRecoderEndPointConstructorParams);
  */
 const string TYPE_NAME = "RecorderEndPoint";
+
+const string CONSTRUCTOR_PARAMS_DATA_TYPE = "KmsMediaRecoderEndPointConstructorParams";
+
+struct KmsMediaRecoderEndPointConstructorParams {
+  1: optional KmsMediaRecordingProfile.KmsMediaRecordingProfile profileType
+}
