@@ -32,9 +32,3 @@ This event is generated when a license plate is detected.
 This event has string data type indicating plate characters.
 */
 const string EVENT_PLATE_DETECTED = "plate-detected";
-
-/**
-This event is generated when a detected license plate is no longer detected
-This event has string data type indicating the plate no longer detected
-*/
-const string EVENT_PLATE_LOST = "plate-lost";
