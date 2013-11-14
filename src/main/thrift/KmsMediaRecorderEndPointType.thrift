@@ -17,7 +17,7 @@ namespace java com.kurento.kms.thrift.api
 namespace cpp kurento
 namespace * Kurento
 
-include "KmsMediaRecordingProfile.thrift"
+include "KmsMediaProfile.thrift"
 
 /**
  * RecorderEndPoint extends UriEndPoint
@@ -34,5 +34,5 @@ const string TYPE_NAME = "RecorderEndPoint";
 const string CONSTRUCTOR_PARAMS_DATA_TYPE = "KmsMediaRecoderEndPointConstructorParams";
 
 struct KmsMediaRecoderEndPointConstructorParams {
-  1: optional KmsMediaRecordingProfile.KmsMediaRecordingProfile profileType
+  1: optional KmsMediaProfile.KmsMediaProfile profileType
 }

@@ -23,6 +23,6 @@ enum KmsMediaMuxer {
 }
 
 // We use an struct because in the future we can add new fields as codec type, ...
-struct KmsMediaRecordingProfile {
-  1: required KmsMediaMuxer profileType
+struct KmsMediaProfile {
+  1: required KmsMediaMuxer mediaMuxer
 }
