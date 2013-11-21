@@ -3,6 +3,7 @@
 	<groupId>com.kurento.kms</groupId>
 	<artifactId>kms-interface</artifactId>
 	<version>3.0.0-4-SNAPSHOT</version>
+	<packaging>jar</packaging>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8 </project.build.sourceEncoding>
@@ -20,8 +21,20 @@
 	</properties>
 
 	<name>kms-interfaces</name>
-	<description>Interfaces in IDL languaje for media server</description>
+	<description>
+		Thrift interface for Kurento media server
+
+		The kms-interface project contains the Thrift interface between the Kurento Media Server native and java components.
+	</description>
 	<url>http://www.kurento.com/docs/${project.artifactId}/${project.version}</url>
+
+	<licenses>
+		<license>
+			<name>GNU Lesser General Public License</name>
+			<url>http://www.gnu.org/licenses/lgpl-2.1.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
 
 	<organization>
 		<name>Kurento</name>
@@ -97,6 +110,15 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.4.2</version>
+				<configuration>
+					<pushChanges>false</pushChanges>
+				</configuration>
+			</plugin>
+
 		</plugins>
 		<pluginManagement>
 			<plugins>
@@ -140,31 +162,6 @@
 		</pluginManagement>
 	</build>
 
-	<repositories>
-		<repository>
-			<id>kurento-snapshots</id>
-			<name>Kurento Snapshot Repository</name>
-			<url>http://repository.kurento.com/archiva/repository/snapshots/</url>
-			<releases>
-				<enabled>false</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>kurento-releases</id>
-			<name>Kurento Repository</name>
-			<url>http://repository.kurento.com/archiva/repository/internal/</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
-
 	<pluginRepositories>
 		<pluginRepository>
 			<id>dtrott</id>
@@ -172,26 +169,10 @@
 		</pluginRepository>
 	</pluginRepositories>
 
-	<distributionManagement>
-		<site>
-			<id>maven-site</id>
-			<url>scp://repository.kurento.com/var/www/kurento/site/${project.artifactId}/${project.version}</url>
-		</site>
-		<repository>
-			<id>releases</id>
-			<name>Kurento releases repository</name>
-			<url>scp://repository.kurento.com/opt/tomcat/current/data/repositories/internal</url>
-		</repository>
-		<snapshotRepository>
-			<id>snapshots</id>
-			<name>Kurento snapshots repository</name>
-			<url>scp://repository.kurento.com/opt/tomcat/current/data/repositories/snapshots</url>
-		</snapshotRepository>
-	</distributionManagement>
-
 	<scm>
-		<connection>scm:http://kurento.googlecode.com</connection>
-		<developerConnection>scm:git:ssh://git@repository.kurento.com/kms/${project.artifactId}.git</developerConnection>
-		<url>https://repository.kurento.com/git/?p=kms/${project.artifactId}.git</url>
+		<connection>scm:git:https://github.com/Kurento/${project.artifactId}.git</connection>
+		<developerConnection>scm:git:ssh://repository.kurento.com:12345/${project.artifactId}.git</developerConnection>
+		<url>https://github.com/Kurento/${project.artifactId}</url>
+		<tag>develop</tag>
 	</scm>
 </project>
