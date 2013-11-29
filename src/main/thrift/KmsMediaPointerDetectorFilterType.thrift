@@ -46,6 +46,7 @@ const string CONSTRUCTOR_PARAMS_DATA_TYPE = "KmsMediaPointerDetectorWindowSet";
  */
 const string ADD_NEW_WINDOW = "addWindow";
 const string ADD_NEW_WINDOW_PARAM_WINDOW= "window";
+const string ADD_NEW_WINDOW_PARAM_WINDOW_TYPE= "KmsMediaPointerDetectorWindow";
 
 /**
  * This method allows to remove an existing window.
