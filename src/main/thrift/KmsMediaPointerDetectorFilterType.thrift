@@ -22,7 +22,9 @@ struct KmsMediaPointerDetectorWindow {
   2: required i32 topRightCornerY,
   3: required i32 width,
   4: required i32 height,
-  5: required string id
+  5: required string id,
+  6: optional string overlayImageUri,
+  7: optional double overlayTransparency
 }
 
 struct KmsMediaPointerDetectorWindowSet {
