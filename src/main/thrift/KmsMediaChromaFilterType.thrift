@@ -21,15 +21,27 @@ struct KmsMediaChromaBackgroundImage {
   1: required string uri
 }
 
+struct KmsMediaChromaColorCalibrationArea {
+  1: required i32 x,
+  2: required i32 y,
+  3: required i32 width,
+  4: required i32 height
+}
+
+struct KmsMediaChromaConstructorParams {
+  1: required KmsMediaChromaColorCalibrationArea calibrationArea,
+  2: optional KmsMediaChromaBackgroundImage backgroundImage
+}
+
 /**
  * ChromaFilter Extends KmsMediaObject
  *
  * Constructors:
  * ChromaFilter (KmsMediaObjectConstructorParams);
- * ChromaFilter (KmsMediaObjectConstructorParams, KmsMediaChromaBackgroundImage);
+ * ChromaFilter (KmsMediaObjectConstructorParams, KmsMediaChromaConstructorParams);
  */
 const string TYPE_NAME = "ChromaFilter";
-const string CONSTRUCTOR_PARAMS_DATA_TYPE = "KmsMediaChromaBackgroundImage";
+const string CONSTRUCTOR_PARAMS_DATA_TYPE = "KmsMediaChromaConstructorParams";
 
 /* METHODS */
 /**
