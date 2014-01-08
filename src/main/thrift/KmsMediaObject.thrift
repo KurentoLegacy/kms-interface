@@ -18,7 +18,7 @@ namespace cpp kurento
 namespace * Kurento
 
 /**
- * Abstract base type. All other elements should extend form this class.
+ * Abstract base type. All other elements should extend from this class.
  *
  * Constructors:
  * MediaObject(KmsMediaObjectConstructorParams);
