@@ -17,21 +17,24 @@ namespace java com.kurento.kms.thrift.api
 namespace cpp kurento
 namespace * Kurento
 
+include "KmsMediaProfile.thrift"
 /**
- * Abstract Type (non instantiable)
  * HttpEndPoint extends MediaSessionEndPoint
  *
  * Constructors:
- * HttpEndPoint (KmsMediaObjectConstructorParams);
+ * HttpEndPoint ();
  * HttpEndPoint (KmsMediaHttpEndPointConstructorParams);
  * HttpEndPoint (KmsMediaHttpEndPointConstructorParams, KmsMediaObjectConstructorParams);
+ * HttpEndPoint (KmsMediaObjectConstructorParams);
  */
 const string TYPE_NAME = "HttpEndPoint";
 
 const string CONSTRUCTOR_PARAMS_DATA_TYPE = "KmsMediaHttpEndPointConstructorParams";
 
 struct KmsMediaHttpEndPointConstructorParams {
-  1: optional i32 disconnectionTimeout
+  2: optional i32 disconnectionTimeout
+  3: optional bool terminateOnEOS
+  4: optional KmsMediaProfile.KmsMediaProfile profileType
 }
 
 /* METHODS */
@@ -42,3 +45,14 @@ This method requests an HttpEndPoint to provide its associated URL.
 String getUrl ();
 */
 const string GET_URL = "getUrl";
+
+/* EVENTS */
+
+/**
+ * This event is raised when an End of Stream is detected at the input of this element
+ * if this element is not live it will also terminate the HTTP Session closing the
+ * connection with the client
+ *
+ * This event has void (inexistent) data
+ */
+const string EVENT_EOS_DETECTED = "EOS_DETECTED";
