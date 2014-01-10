@@ -51,3 +51,9 @@ const string CONSTRUCTOR_PARAMS_DATA_TYPE = "KmsMediaChromaConstructorParams";
 const string SET_BACKGROUND = "setBackground";
 const string SET_BACKGROUND_PARAM_BACKGROUND_IMAGE= "backgroundImage";
 const string SET_BACKGROUND_PARAM_BACKGROUND_TYPE= "KmsMediaChromaBackgroundImage";
+
+/**
+ * This method allows to unset the current background image.
+ * void unsetBackground ();
+ */
+const string UNSET_BACKGROUND = "unsetBackground";
