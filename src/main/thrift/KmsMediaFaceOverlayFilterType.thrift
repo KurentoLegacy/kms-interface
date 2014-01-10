@@ -52,3 +52,9 @@ const string TYPE_NAME = "FaceOverlayFilter";
 const string SET_IMAGE_OVERLAY = "setImageOverlay";
 const string SET_IMAGE_OVERLAY_PARAM_IMAGE= "image";
 const string SET_IMAGE_OVERLAY_PARAM_IMAGE_TYPE= "KmsMediaFaceOverlayImage";
+
+/**
+ * This method allows to unset the current image overlay.
+ * void unsetImageOverlay ();
+ */
+const string UNSET_IMAGE_OVERLAY = "unsetImageOverlay";
