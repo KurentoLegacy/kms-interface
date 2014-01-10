@@ -18,27 +18,13 @@ namespace cpp kurento
 namespace * Kurento
 
 /**
- * Abstract Type (non instantiable)
- * HttpEndPoint extends MediaSessionEndPoint
+ * HttpPostEndPoint extends HttpEndPoint
  *
  * Constructors:
- * HttpEndPoint (KmsMediaObjectConstructorParams);
- * HttpEndPoint (KmsMediaHttpEndPointConstructorParams);
- * HttpEndPoint (KmsMediaHttpEndPointConstructorParams, KmsMediaObjectConstructorParams);
+ * HttpPostEndPoint ();
+ * HttpPostEndPoint (KmsMediaObjectConstructorParams);
+ * HttpPostEndPoint (KmsMediaHttpEndPointConstructorParams);
+ * HttpPostEndPoint (KmsMediaObjectConstructorParams, KmsMediaHttpEndPointConstructorParams);
  */
-const string TYPE_NAME = "HttpEndPoint";
 
-const string CONSTRUCTOR_PARAMS_DATA_TYPE = "KmsMediaHttpEndPointConstructorParams";
-
-struct KmsMediaHttpEndPointConstructorParams {
-  1: optional i32 disconnectionTimeout
-}
-
-/* METHODS */
-
-/**
-This method requests an HttpEndPoint to provide its associated URL.
-
-String getUrl ();
-*/
-const string GET_URL = "getUrl";
+const string TYPE_NAME = "HttpPostEndPoint";
