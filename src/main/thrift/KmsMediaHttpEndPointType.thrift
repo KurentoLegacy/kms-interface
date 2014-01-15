@@ -26,7 +26,6 @@ namespace * Kurento
  * HttpEndPoint (KmsMediaHttpEndPointConstructorParams);
  * HttpEndPoint (KmsMediaHttpEndPointConstructorParams, KmsMediaObjectConstructorParams);
  */
-const string TYPE_NAME = "HttpEndPoint";
 
 const string CONSTRUCTOR_PARAMS_DATA_TYPE = "KmsMediaHttpEndPointConstructorParams";
 
