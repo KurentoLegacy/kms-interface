@@ -1,0 +1,22 @@
+Source: kms-interface
+Section: net
+Priority: optional
+Maintainer: Kurento Maintenance Team <kurento@googlegroups.com>
+Build-Depends:
+ cmake,
+ debhelper,
+ libthrift-dev (>= 0.9.0),
+ libthrift-dev (<<  0.9.1),
+ thrift-compiler
+Standards-Version: 3.9.4
+
+
+Package: kms-interface-dev
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: IDL interfaces for the Kurento Media Server
+ The Kurento Media Framework is used to develop programs
+ doing composable pipeline-based processing or media.
+ .
+ This package builds the thrift RPC plumbing for communicating
+ the C and java components of kurento.

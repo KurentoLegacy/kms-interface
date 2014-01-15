@@ -1,0 +1,287 @@
+kms-interface (3.0.1) saucy; urgency=low
+
+  [ Jose Antonio Santos Cadenas ]
+  * [maven-release-plugin] prepare for next development iteration
+  * Prepare CMakeLists to next release version
+
+  [ Miguel París Díaz ]
+  * Update to 2.0.0 version.
+  * Delete mediaSpec dependency and use string instead of SessionSpec.
+  * Fix some missprints.
+  * Refactor thrift API.
+  * Use list instead of set to avoid operator< implementation.
+  * Add mixerId param in createMixer function.
+  * Fix missprint.
+
+  [ Jose Antonio Santos Cadenas ]
+  * Add .gitreview file
+  * Generate new thrift interfaces
+  * Change KmsError and KmsEvent prefix to MediaError and MediaEvent
+
+  [ Miguel París Díaz ]
+  * Add getUrl method for HttpEndPoint
+  * Rename handlerService to MediaHandlerService
+  * Change remain *Endpoint by *EndPoint
+  * Add ZBAR_FILTER type
+
+  [ Jose Antonio Santos Cadenas ]
+  * Add event union for PlayerEndPoint
+  * Workaround to avoid bug in thrift c++ generator
+  * Rename MediaObject to MediaObjectId to make based code more readable
+
+  [ llopez ]
+  * MediaManager renamed to MediaPipeline
+
+  [ Jose Antonio Santos Cadenas ]
+  * Add ZBar events
+  * Add HttpEndpointEvent to notify when a request is done
+  * Add unexpected request event
+
+  [ Joaquin Mengual Garcia ]
+  * Add POINTER_DETECTOR_FILTER type
+  * Add pointerDetector events
+
+  [ Miguel París Díaz ]
+  * Add face detector filter
+
+  [ Jose Antonio Santos Cadenas ]
+  * Change name to Jack Vader filter
+  * Prepare release kms-interface-2.0.0
+  * Prepare to next development iteration
+
+  [ Luis López ]
+  * New thrift interface improving flexibility
+
+  [ Ivan Gracia ]
+  * Refactor interface to have only one exception
+  * Refactor to have method´s in/out as MediaObjectRef
+
+  [ Jose Antonio Santos Cadenas ]
+  * Fix source format
+
+  [ Pedro Garcia Rodriguez ]
+  * Modified gitreview file
+
+  [ Ivan Gracia ]
+  * Renamings and some struct fields made optional
+  * Error and Event prepended with KMS to prevent conflicts in keywords
+  * Added properties to Command and CommandResult
+  * Added dataType to Command and eventType to subscribe method
+
+  [ Luis López ]
+  * First version of specific events and commands
+
+  [ Jose Antonio Santos Cadenas ]
+  * Solve minor format issues and typos
+
+  [ Luis López ]
+  * Added additional constants for command and media element types
+  * Added constants for command results
+
+  [ Miguel París Díaz ]
+  * Delete dataType in CommandResult
+  * Use mediaObjectRef as param name in sendCommand
+
+  [ Santiago Gala ]
+  * Add LICENSE and README.md for publishing at github under LGPL license
+  * Add Source headers to files
+
+  [ Miguel París Díaz ]
+  * Use a file per each media object type
+  * Add error codes
+  * Fix doc about HttpEndPoint
+
+  [ Jose Antonio Santos Cadenas ]
+  * Fix problems with Services while compiling C++
+  * Force thrift version to 0.9.0
+  * Fix build script deleting build directory before building
+  * Add KmsMedia as prefix for all generated types
+
+  [ Ivan Gracia ]
+  * Proposal to make mandatory Params in Command
+
+  [ Miguel París Díaz ]
+  * Add UNEXPECTED_ERROR error code
+  * Add MEDIA_OBJECT_EVENT_NOT_SUPPORTED error code
+  * HttpEndPoint: add constructor
+  * Fix doc of HttpEndPoint
+  * Add HTTP_END_POINT_REGISTRATION_ERROR code error
+
+  [ Jose Antonio Santos Cadenas ]
+  * Fix typos and expresion in documentation comments
+  * Add methods to allow error subscription
+
+  [ Ivan Gracia ]
+  * Added method to connect two elements
+  * Create MediaObject base type with common params
+
+  [ Miguel París Díaz ]
+  * Removed MediaCommand. sendCommand renamed to invoke
+
+  [ Jose Antonio Santos Cadenas ]
+  * Add connect elements methods filtered by type and full pad description
+  * Cosmetic changes in invoke method
+
+  [ Miguel París Díaz ]
+  * Add MEDIA_OBJECT_ILLEGAL_PARAM_ERROR
+
+  [ Jose Antonio Santos Cadenas ]
+  * Add param to KmsMediaObject constructor to allow set garbagePeriod
+  * Add error code for connect error
+  * Add error code for unsupported media type
+  * Remove setUri method from UriEndPoint, the uri si only set in the contstructor
+  * Remove cookiLifetime from HttpEndPoint constructor params
+  * Add not implemented error code
+
+  [ David Fernandez ]
+  * Create thrift interface for Pointerdetector events
+  * Update thrift interface to allow setting windows in pointer detector
+  * Improve thrift interface names of pointer detector
+  * Modify interface of pointer detector to insert set type into a struct
+
+  [ Jose Antonio Santos Cadenas ]
+  * Add option to indicate if a HttpEndPoint is live or not
+  * Add event to indicate that the source element has reached the end of stream
+  * HttpEndPoint: Change live parameter by terminateOnEOS
+
+  [ David Fernandez ]
+  * Create thrift interface for plate detector filter
+  * plateDetector: Delete plate lost event from thrift interface
+  * Add optional KmsMediaRecordingProfile param to constructor
+  * Modify KmsMediaRecordingProfile by KmsMediaProfile
+  * Add MEDIA_OBJECT_NOT_AVAILAIBLE error to thrift interface
+
+  [ Jose Antonio Santos Cadenas ]
+  * Generate source jar
+
+  [ Ivan Gracia ]
+  * Changed names of method params
+
+  [ Santiago Gala ]
+  * [Trivial] ignore Unix backup files.
+  * Adapt pom.xml for maven central
+  * [maven-release-plugin] prepare release kms-interface-3.0.1
+
+ -- Santiago Gala <sgala@apache.org>  Sat, 21 Dec 2013 23:11:19 +0100
+
+kms-interface (1.0.2) saucy; urgency=low
+
+  [ Jose Antonio Santos Cadenas ]
+  * [maven-release-plugin] prepare for next development iteration
+  * Prepare CMakeLists to next release version
+
+  [ Miguel París Díaz ]
+  * Update to 2.0.0 version.
+  * Delete mediaSpec dependency and use string instead of SessionSpec.
+  * Fix some missprints.
+  * Refactor thrift API.
+  * Use list instead of set to avoid operator< implementation.
+  * Add mixerId param in createMixer function.
+  * Fix missprint.
+
+  [ Jose Antonio Santos Cadenas ]
+  * Add .gitreview file
+  * Generate new thrift interfaces
+  * Change KmsError and KmsEvent prefix to MediaError and MediaEvent
+
+  [ Miguel París Díaz ]
+  * Add getUrl method for HttpEndPoint
+  * Rename handlerService to MediaHandlerService
+  * Change remain *Endpoint by *EndPoint
+  * Add ZBAR_FILTER type
+
+  [ Jose Antonio Santos Cadenas ]
+  * Add event union for PlayerEndPoint
+  * Workaround to avoid bug in thrift c++ generator
+  * Rename MediaObject to MediaObjectId to make based code more readable
+
+  [ llopez ]
+  * MediaManager renamed to MediaPipeline
+
+  [ Jose Antonio Santos Cadenas ]
+  * Add ZBar events
+  * Add HttpEndpointEvent to notify when a request is done
+  * Add unexpected request event
+
+  [ Joaquin Mengual Garcia ]
+  * Add POINTER_DETECTOR_FILTER type
+  * Add pointerDetector events
+
+  [ Miguel París Díaz ]
+  * Add face detector filter
+
+  [ Jose Antonio Santos Cadenas ]
+  * Change name to Jack Vader filter
+  * Prepare release kms-interface-2.0.0
+
+ -- Jose Antonio Santos Cadenas <santoscadenas@gmail.com>  Sat, 21 Dec 2013 23:10:06 +0100
+
+kms-interface (1.0.2) raring; urgency=low
+
+  [ Jose Antonio Santos Cadenas ]
+  * [maven-release-plugin] prepare for next development iteration
+  * Update dependency
+  * Update to thrift version 0.9.0
+  * Update dependencies to next release version
+  * Update versions to prepare release
+  * [maven-release-plugin] prepare release kms-interface-1.0.2
+
+ -- Jose Antonio Santos Cadenas <santoscadenas@gmail.com>  Sat, 21 Dec 2013 23:07:28 +0100
+
+kms-interface (1.0.1) raring; urgency=low
+
+  [ Jose Antonio Santos Cadenas ]
+  * [maven-release-plugin] prepare for next development iteration
+  * Add version kms_interface_config.h
+  * Use develop branch version of kms-mediaspec-interface project
+  * Get version from git correctly
+  * Update kms-interface dependencies to next snapshot
+  * Update dependencies to next release
+  * [maven-release-plugin] prepare release kms-interface-1.0.1
+
+ -- Jose Antonio Santos Cadenas <santoscadenas@gmail.com>  Sat, 21 Dec 2013 23:05:58 +0100
+
+kms-interface (1.0.0) raring; urgency=low
+
+
+  [ Jose Antonio Santos Cadenas ]
+  * Initial commit
+  * Add some thrift interfaces and compile them with maven
+  * Add Joinable and make joinableContainer to inherit from joinable
+  * Set network configuration as a list to allow multiple configs
+  * Refactor exceptions
+  * Add mixer to API
+  * Add methods to JoinableService
+  * Remove no needed property
+  * Add methods to know jonees of a joinable
+  * Add stream manipulation methods in joinable container
+  * Add negotiation methods to NetworkConnectionService
+  * Add first version of cmake configuration
+  * Add script to make configuration easier
+  * Add build directory to ignored resources
+  * Install mediaspec while installing kms-interface
+  * Unify installation of headers with library installation
+  * Add method to known server configuration
+  * Add more files to gitignore
+  * Change the size of object identifier to 64 bits
+  * Add serverService port to ServerConfig
+  * change name of parameters from mediaSessionId to mediaSession
+  * Fix types in thrift specs
+  * Remove JoinableStreamService use attributes instead
+  * Remove JoinableContainer functionality to joinable
+  * Be coherent in arguments order
+  * Add mediaSession to session elements (networkconnection, and mixer)
+  * Do not name parents fields with the same name
+  * Prepare data types to manage autentication
+  * Make all methods throw a ServerException to handle all unknown sitiations
+  * Move ping method to media session
+  * Change server configuration struct
+  * Fix typo in thrift interface
+  * Remove mediaObjectService
+  * Use mediaSpec Direction instead of creating a new one
+  * Add license to thrirft files
+  * Update dependencies version to next release
+  * Fix typo in git repository direction
+  * [maven-release-plugin] prepare release kms-interface-1.0.0
+
+ -- Jose Antonio Santos Cadenas <santoscadenas@gmail.com>  Sat, 21 Dec 2013 23:05:58 +0100
