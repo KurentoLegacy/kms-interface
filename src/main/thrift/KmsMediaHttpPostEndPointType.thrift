@@ -28,3 +28,10 @@ namespace * Kurento
  */
 
 const string TYPE_NAME = "HttpPostEndPoint";
+
+/* EVENTS */
+
+/**
+ * This event has void (inexistent) data
+ */
+const string EVENT_EOS = "EOS";
