@@ -36,14 +36,3 @@ struct KmsMediaHttpGetEndPointConstructorParams {
   1: optional bool terminateOnEOS
   2: optional KmsMediaProfile.KmsMediaProfile profileType
 }
-
-/* EVENTS */
-
-/**
- * This event is raised when an End of Stream is detected at the input of this element
- * if this element is not live it will also terminate the HTTP Session closing the
- * connection with the client
- *
- * This event has void (inexistent) data
- */
-const string EVENT_EOS_DETECTED = "EOS_DETECTED";
