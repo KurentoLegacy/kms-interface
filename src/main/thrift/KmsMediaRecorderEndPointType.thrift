@@ -33,6 +33,12 @@ const string TYPE_NAME = "RecorderEndPoint";
 
 const string CONSTRUCTOR_PARAMS_DATA_TYPE = "KmsMediaRecoderEndPointConstructorParams";
 
+/**
+* @param profileType Defines the format used to save the media.
+* @param stopOnEOS if it is TRUE, forces the recorder end point to finish processing data
+                   when an EOS is detected in the stream.
+*/
 struct KmsMediaRecoderEndPointConstructorParams {
-  1: optional KmsMediaProfile.KmsMediaProfile profileType
+  1: optional KmsMediaProfile.KmsMediaProfile profileType,
+  2: optional bool stopOnEOS
 }
