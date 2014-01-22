@@ -1,5 +1,5 @@
 /*
- * (C) Copyright 2014 Kurento (http://kurento.org/)
+ * (C) Copyright 2013 Kurento (http://kurento.org/)
  *
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the GNU Lesser General Public License
@@ -17,8 +17,6 @@ namespace java com.kurento.kms.thrift.api
 namespace cpp kurento
 namespace * Kurento
 
-include "KmsMediaComputerVision.thrift"
-
 struct KmsMediaPointerDetectorWindow {
   1: required i32 topRightCornerX,
   2: required i32 topRightCornerY,
@@ -34,20 +32,15 @@ struct KmsMediaPointerDetectorWindowSet {
   1: required set<KmsMediaPointerDetectorWindow> windows;
 }
 
-struct KmsMediaPointerDetectorConstructorParams {
-  1: required KmsMediaComputerVision.KmsMediaImageRegion colorCalibrationRegion,
-  2: optional KmsMediaPointerDetectorWindowSet windowSet
-}
-
 /**
  * PointerDetectorFilter Extends KmsMediaObject
  *
  * Constructors:
  * PointerDetectorFilter (KmsMediaObjectConstructorParams);
- * PointerDetectorFilter (KmsMediaObjectConstructorParams, KmsMediaPointerDetectorConstructorParams);
+ * PointerDetectorFilter (KmsMediaObjectConstructorParams, KmsMediaPointerDetectorWindowSet);
  */
 const string TYPE_NAME = "PointerDetectorFilter";
-const string CONSTRUCTOR_PARAMS_DATA_TYPE = "KmsMediaPointerDetectorConstructorParams";
+const string CONSTRUCTOR_PARAMS_DATA_TYPE = "KmsMediaPointerDetectorWindowSet";
 
 /* METHODS */
 /**
@@ -70,13 +63,6 @@ const string REMOVE_WINDOW_PARAM_WINDOW_ID = "windowID";
  * void clearWindows ();
  */
 const string CLEAR_WINDOWS = "clearWindows";
-
-/**
- * This method allows to calibrate the tracking color. The new tracking color
- * will be the color into the colorCalibrationRegion.
- * void trackColorFromCalibrationRegion ();
- */
-const string TRACK_COLOR_FROM_CALIBRATION_REGION = "trackColorFromCalibrationRegion";
 
 /* EVENTS */
 
