@@ -32,7 +32,7 @@ struct KmsMediaPointerDetector2ConstructorParams {
  * PointerDetector2Filter (KmsMediaObjectConstructorParams);
  * PointerDetector2Filter (KmsMediaObjectConstructorParams, KmsMediaPointerDetector2ConstructorParams);
  */
-const string TYPE_NAME = "PointerDetectorFilter";
+const string TYPE_NAME = "PointerDetector2Filter";
 const string CONSTRUCTOR_PARAMS_DATA_TYPE = "KmsMediaPointerDetector2ConstructorParams";
 
 /* METHODS */
