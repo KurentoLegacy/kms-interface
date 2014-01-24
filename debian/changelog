@@ -1,3 +1,68 @@
+kms-interface (3.0.5) UNRELEASED; urgency=low
+
+  [ Santiago Gala ]
+  * [maven-release-plugin] prepare for next development iteration
+
+  [ Ivan Gracia ]
+  * Added type name for pointer detector window
+
+  [ David Fernandez ]
+  * Add KmsMediaFaceOverlayFilter interface
+  * Add paramaters to pointerDetectorFilter interface
+  * Add active overlay to pointerdetector interface
+  * Add thrift interface for a generic gstreamer filter
+  * Add ChromaFilter to thrift interface
+
+  [ Santiago Carot-Nemesio ]
+  * MediaObject: Fix typo error
+  * Split HttpEndPoint interface
+
+  [ Jose Antonio Santos Cadenas ]
+  * Revert "Split HttpEndPoint interface"
+
+  [ David Fernandez ]
+  * ChromaFilter: Add calibration area as constructor parameter
+
+  [ Jose Antonio Santos Cadenas ]
+  * Prepare release kms-interface-3.0.3
+  * Prepare for next development iteration
+  * Reenable "Split HttpEndPoint interface"
+
+  [ David Fernandez ]
+  * faceoverlay: Add function to remove the image overlay to the interface
+  * chroma: Add function to remove the background image to the interface
+
+  [ Santiago Carot-Nemesio ]
+  * HttpEndPoint: Abstract classes should not provide the TYPE_NAME string constant
+
+  [ Santiago Gala ]
+  * Deb source package for kms-interface
+
+  [ Miguel París Díaz ]
+  * KmsMediaOject: update to garbage collector with two states
+
+  [ David Fernandez ]
+  * Add a generic type to define a image region in the thrift interface
+  * pointerDetector: Add method to calibrate the color to track
+
+  [ Jose Antonio Santos Cadenas ]
+  * Revert "pointerDetector: Add method to calibrate the color to track"
+
+  [ David Fernandez ]
+  * pointerDetector2: Add pointerDetector2 interface
+
+  [ Santiago Carot-Nemesio ]
+  * KmsMediaHttpPostEndPoint: Raise EOS event
+  * KmsMediaHttpGetEndPointType: Remove deprecated signal
+  * KmsMediaRecorderEndPoint: Add stopOnEOS contructor  parameter
+
+  [ David Fernandez ]
+  * pointerDetector2: Fix problem in TYPE_NAME
+
+  [ José Antonio Santos Cadenas ]
+
+ -- Santiago Gala <sgala@apache.org>  Fri, 24 Jan 2014 22:12:03 +0100
+
 kms-interface (3.0.1) saucy; urgency=low
 
   [ Jose Antonio Santos Cadenas ]
