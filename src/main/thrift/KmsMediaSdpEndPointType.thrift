@@ -17,6 +17,8 @@ namespace java com.kurento.kms.thrift.api
 namespace cpp kurento
 namespace * Kurento
 
+include "KmsMediaServer.thrift"
+
 /**
  * Abstract Type (non instantiable)
  * SdpEndPoint extends MediaSessionEndPoint
@@ -63,3 +65,23 @@ String processSdpAnswer (String answer);
 */
 const string PROCESS_SDP_ANSWER = "processSdpAnswer";
 const string PROCESS_SDP_ANSWER_PARAM_ANSWER_STR = "answer";
+
+
+/* EVENTS */
+
+const string EVENT_MEDIA_TRANSMISSION_DATA_TYPE  = KmsMediaServer.MEDIA_TYPE;
+
+/**
+This event is generated when transmission of media has started
+
+This event provides a media transmission data type as parameter
+*/
+const string EVENT_MEDIA_TRANSMISSION_START = "MediaTransmissionStart";
+
+/**
+This event is generated when transmission of media has stopped
+
+This event provides a media transmission data type as parameter
+*/
+const string EVENT_MEDIA_TRANSMISSION_STOP = "MediaTransmissionStop";
+

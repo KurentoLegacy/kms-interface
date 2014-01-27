@@ -34,6 +34,7 @@ enum KmsMediaPadDirection {
   SRC
 }
 
+const string MEDIA_TYPE = "MediaType";
 enum KmsMediaType {
   AUDIO,
   VIDEO,
