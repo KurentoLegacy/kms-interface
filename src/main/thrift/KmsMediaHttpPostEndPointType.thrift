@@ -24,10 +24,32 @@ namespace * Kurento
  * HttpPostEndPoint ();
  * HttpPostEndPoint (KmsMediaObjectConstructorParams);
  * HttpPostEndPoint (KmsMediaHttpEndPointConstructorParams);
+ * HttpPostEndPoint (KmsMediaHttpPostEndPointConstructorParams);
  * HttpPostEndPoint (KmsMediaObjectConstructorParams, KmsMediaHttpEndPointConstructorParams);
+ * HttpPostEndPoint (KmsMediaObjectConstructorParams, KmsMediaHttpPostEndPointConstructorParams);
+ * HttpPostEndPoint (KmsMediaHttpEndPointConstructorParams, KmsMediaHttpPostEndPointConstructorParams);
+ * HttpPostEndPoint (KmsMediaObjectConstructorParams, KmsMediaHttpEndPointConstructorParams, KmsMediaHttpPostEndPointConstructorParams);
  */
 
 const string TYPE_NAME = "HttpPostEndPoint";
+const string CONSTRUCTOR_PARAMS_DATA_TYPE = "KmsMediaHttpPostEndPointConstructorParams";
+
+struct KmsMediaHttpPostEndPointConstructorParams {
+  /**
+   * @param useEncodedMedia This parameter allows to change from raw media
+   * to encoded media. If the parameter is TRUE the element uses encoded
+   * media. If the parameter is set to FALSE or not set then the element uses
+   * raw media.
+   * Changing this parameter could affect in a severe way to stability because
+   * key frames lost will not be generated.
+   * Changing the media type does not affect to the result except in the
+   * performance (just in the case where original media and target media are the
+   * same) and in the problem with the key frames.
+   * We strongly recommended not to use this parameter because correct behaviour
+   * is not guarantied.
+   */
+  1: optional bool useEncodedMedia
+}
 
 /* EVENTS */
 

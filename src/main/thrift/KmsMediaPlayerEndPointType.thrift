@@ -22,9 +22,29 @@ namespace * Kurento
  *
  * Constructors:
  * PlayerEndPoint (KmsMediaUriEndPointConstructorParams);
+ * PlayerEndPoint (KmsMediaUriEndPointConstructorParams, KmsMediaPlayerEndPointConstructorParams);
  * PlayerEndPoint (KmsMediaUriEndPointConstructorParams, KmsMediaObjectConstructorParams);
+ * PlayerEndPoint (KmsMediaUriEndPointConstructorParams, KmsMediaObjectConstructorParams, KmsMediaPlayerEndPointConstructorParams);
  */
 const string TYPE_NAME = "PlayerEndPoint";
+const string CONSTRUCTOR_PARAMS_DATA_TYPE = "KmsMediaPlayerEndPointConstructorParams";
+
+struct KmsMediaPlayerEndPointConstructorParams {
+  /**
+   * @param useEncodedMedia This parameter allows to change from raw media
+   * to encoded media. If the parameter is TRUE the element uses encoded
+   * media. If the parameter is set to FALSE or not set then the element uses
+   * raw media.
+   * Changing this parameter could affect in a severe way to stability because
+   * key frames lost will not be generated.
+   * Changing the media type does not affect to the result except in the
+   * performance (just in the case where original media and target media are the
+   * same) and in the problem with the key frames.
+   * We strongly recommended not to use this parameter because correct behaviour
+   * is not guarantied.
+   */
+  1: optional bool useEncodedMedia
+}
 
 /* EVENTS */
 
