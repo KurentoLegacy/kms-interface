@@ -69,19 +69,33 @@ const string PROCESS_SDP_ANSWER_PARAM_ANSWER_STR = "answer";
 
 /* EVENTS */
 
-const string EVENT_MEDIA_TRANSMISSION_DATA_TYPE  = KmsMediaServer.MEDIA_TYPE;
+enum KmsMediaSource {
+  REMOTE,
+  LOCAL
+}
+
+/**
+* @param media This is the transmission data type.
+* @param source Indicates wheter the event has occurred in the server side (local)
+                or it is a event originated in the client side (remote)
+*/
+struct KmsMediaTransmissionData {
+  1: required KmsMediaServer.KmsMediaType media,
+  2: required KmsMediaSource source
+}
+
+const string EVENT_MEDIA_TRANSMISSION_DATA_TYPE = "MediaTransmissionData"
 
 /**
 This event is generated when transmission of media has started
 
-This event provides a media transmission data type as parameter
+This event provides a media transmission data as parameter
 */
 const string EVENT_MEDIA_TRANSMISSION_START = "MediaTransmissionStart";
 
 /**
 This event is generated when transmission of media has stopped
 
-This event provides a media transmission data type as parameter
+This event provides a media transmission data as parameter
 */
 const string EVENT_MEDIA_TRANSMISSION_STOP = "MediaTransmissionStop";
-
