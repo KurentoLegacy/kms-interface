@@ -17,7 +17,7 @@ namespace java com.kurento.kms.thrift.api
 namespace cpp kurento
 namespace * Kurento
 
-const string TYPE_NAME = "MainMixer";
+const string TYPE_NAME = "DispatcherMixer";
 
 /* METHODS */
 /**
