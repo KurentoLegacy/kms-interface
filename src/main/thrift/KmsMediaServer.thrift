@@ -71,6 +71,8 @@ struct KmsMediaObjectRef {
   3: KmsMediaObjectType objectType
 }
 
+const string MEDIA_OBJECT_REF = "KmsMediaObjectRef";
+
 struct KmsMediaParam {
   1: string dataType,
   2: optional binary data

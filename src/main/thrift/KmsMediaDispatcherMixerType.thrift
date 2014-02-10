@@ -17,6 +17,8 @@ namespace java com.kurento.kms.thrift.api
 namespace cpp kurento
 namespace * Kurento
 
+include "KmsMediaServer.thrift"
+
 const string TYPE_NAME = "DispatcherMixer";
 
 /* METHODS */
@@ -26,7 +28,7 @@ const string TYPE_NAME = "DispatcherMixer";
  */
 const string SET_MAIN_END_POINT = "setMainEndPoint";
 const string SET_MAIN_END_POINT_PARAM_MIXER = "mixerEndPoint";
-const string SET_MAIN_END_POINT_PARAM_MIXER_TYPE = "KmsMediaObjectRef";
+const string SET_MAIN_END_POINT_PARAM_MIXER_TYPE = KmsMediaServer.MEDIA_OBJECT_REF;
 
 /**
  * This method allows to unset the main mixerEndPoint.
