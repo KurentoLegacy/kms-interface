@@ -17,4 +17,4 @@ namespace java com.kurento.kms.thrift.api
 namespace cpp kurento
 namespace * Kurento
 
-const string TYPE_NAME = "MixerEndPoint";
+const string TYPE_NAME = "MixerPort";

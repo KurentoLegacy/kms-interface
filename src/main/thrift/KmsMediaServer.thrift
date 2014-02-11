@@ -145,6 +145,6 @@ service KmsMediaServerService {
   /////////////////////////////////////////////////////////////////////////////////
   // Methods associated to Mixer objects
   /////////////////////////////////////////////////////////////////////////////////
-  KmsMediaObjectRef createMixerEndPoint(1: KmsMediaObjectRef mixer) throws (1: KmsMediaServerException mse);
-  KmsMediaObjectRef createMixerEndPointWithParams(1: KmsMediaObjectRef mixer, 2: map<string, KmsMediaParam> params) throws (1: KmsMediaServerException mse);
+  KmsMediaObjectRef createMixerPort(1: KmsMediaObjectRef mixer) throws (1: KmsMediaServerException mse);
+  KmsMediaObjectRef createMixerPortWithParams(1: KmsMediaObjectRef mixer, 2: map<string, KmsMediaParam> params) throws (1: KmsMediaServerException mse);
 }
