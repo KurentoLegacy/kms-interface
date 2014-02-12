@@ -147,4 +147,10 @@ service KmsMediaServerService {
   /////////////////////////////////////////////////////////////////////////////////
   KmsMediaObjectRef createMixerPort(1: KmsMediaObjectRef mixer) throws (1: KmsMediaServerException mse);
   KmsMediaObjectRef createMixerPortWithParams(1: KmsMediaObjectRef mixer, 2: map<string, KmsMediaParam> params) throws (1: KmsMediaServerException mse);
+
+  /////////////////////////////////////////////////////////////////////////////////
+  // Test method for JSON-RPC migration
+  /////////////////////////////////////////////////////////////////////////////////
+
+  string invokeJsonRpc (1: string request);
 }
