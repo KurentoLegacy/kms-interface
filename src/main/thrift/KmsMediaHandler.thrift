@@ -17,24 +17,6 @@ namespace java com.kurento.kms.thrift.api
 namespace cpp kurento
 namespace * Kurento
 
-include "KmsMediaServer.thrift"
-
-typedef KmsMediaServer.KmsMediaParam KmsMediaEventData
-
-struct KmsMediaEvent {
-  1: string type,
-  2: KmsMediaServer.KmsMediaObjectRef source,
-  3: optional KmsMediaEventData eventData
-}
-
-struct KmsMediaError {
-  1: string type,
-  2: string description,
-  3: i32 errorCode
-  4: KmsMediaServer.KmsMediaObjectRef source
-}
-
 service KmsMediaHandlerService {
-  void onEvent(1: string callbackToken, 2: KmsMediaEvent event);
-  void onError(1: string callbackToken, 2: KmsMediaError error);
+  void eventJsonRpc (1: string request);
 }
