@@ -1,185 +1,37 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.kurento</groupId>
+		<artifactId>kmf-parent-pom</artifactId>
+		<version>3.0.7-SNAPSHOT</version>
+	</parent>
+
 	<groupId>com.kurento.kms</groupId>
 	<artifactId>kms-interface</artifactId>
-	<version>3.0.6-2-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8 </project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<maven.compiler.source>1.6</maven.compiler.source>
-		<maven.compiler.target>1.6</maven.compiler.target>
-
-		<!-- Dependencies Versions -->
-		<libthrift.version>0.9.0</libthrift.version>
-
-		<!-- Plugins Versions -->
-
-		<!-- Extensions Versions -->
-		<wagon-ssh.version>2.0</wagon-ssh.version>
-	</properties>
-
-	<name>kms-interfaces</name>
+	<name>kms-interface</name>
 	<description>
 		Thrift interface for Kurento media server
 
 		The kms-interface project contains the Thrift interface between the Kurento Media Server native and java components.
 	</description>
-	<url>http://www.kurento.com/docs/${project.artifactId}/${project.version}</url>
-
-	<licenses>
-		<license>
-			<name>GNU Lesser General Public License</name>
-			<url>http://www.gnu.org/licenses/lgpl-2.1.txt</url>
-			<distribution>repo</distribution>
-		</license>
-	</licenses>
-
-	<organization>
-		<name>Kurento</name>
-		<url>http://www.kurento.com</url>
-	</organization>
-
-	<developers>
-		<developer>
-			<id>jcaden</id>
-			<name>José Antonio Santos Cadenas</name>
-		</developer>
-	</developers>
-
-	<mailingLists>
-		<mailingList>
-			<name>Kurento</name>
-			<subscribe>http://groups.google.com/group/kurento/subscribe</subscribe>
-			<post>http://groups.google.com/group/kurento/post</post>
-			<archive>http://groups.google.com/group/kurento/about</archive>
-		</mailingList>
-	</mailingLists>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.thrift</groupId>
 			<artifactId>libthrift</artifactId>
-			<version>${libthrift.version}</version>
 		</dependency>
 	</dependencies>
 
 	<build>
-		<extensions>
-			<extension>
-				<groupId>org.apache.maven.wagon</groupId>
-				<artifactId>wagon-ssh</artifactId>
-				<version>${wagon-ssh.version}</version>
-			</extension>
-		</extensions>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.thrift.tools</groupId>
 				<artifactId>maven-thrift-plugin</artifactId>
-				<version>0.1.11</version>
-				<executions>
-					<execution>
-						<id>thrift-sources</id>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>compile</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>thrift-test-sources</id>
-						<phase>generate-test-sources</phase>
-						<goals>
-							<goal>testCompile</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
-			<plugin>
-				<artifactId>maven-source-plugin</artifactId>
-				<version>2.1.1</version>
-				<executions>
-					<execution>
-						<id>bundle-sources</id>
-						<phase>package</phase>
-						<goals>
-							<!-- produce source artifact for main project sources -->
-							<goal>jar-no-fork</goal>
-
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-release-plugin</artifactId>
-				<version>2.4.2</version>
-				<dependencies>
-					<dependency>
-						<groupId>org.apache.maven.scm</groupId>
-						<artifactId>maven-scm-provider-gitexe</artifactId>
-						<version>1.8.1</version>
-					</dependency>
-				</dependencies>
-				<configuration>
-					<pushChanges>false</pushChanges>
-				</configuration>
-			</plugin>
-
 		</plugins>
-		<pluginManagement>
-			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings
-					only. It has no influence on the Maven build itself. -->
-				<plugin>
-					<groupId>org.eclipse.m2e</groupId>
-					<artifactId>lifecycle-mapping</artifactId>
-					<version>1.0.0</version>
-					<configuration>
-						<lifecycleMappingMetadata>
-							<pluginExecutions>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>
-											org.apache.thrift.tools
-										</groupId>
-										<artifactId>
-											maven-thrift-plugin
-										</artifactId>
-										<versionRange>
-											[0.1.11,)
-										</versionRange>
-										<goals>
-											<goal>compile</goal>
-											<goal>testCompile</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<execute>
-											<runOnIncremental>false</runOnIncremental>
-										</execute>
-										<!-- <ignore></ignore> -->
-									</action>
-								</pluginExecution>
-							</pluginExecutions>
-						</lifecycleMappingMetadata>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
 	</build>
-
-	<pluginRepositories>
-		<pluginRepository>
-			<id>dtrott</id>
-			<url>http://maven.davidtrott.com/repository</url>
-		</pluginRepository>
-	</pluginRepositories>
-
-	<scm>
-		<connection>scm:git:https://github.com/Kurento/${project.artifactId}.git</connection>
-		<developerConnection>scm:git:ssh://repository.kurento.com:12345/${project.artifactId}.git</developerConnection>
-		<url>https://github.com/Kurento/${project.artifactId}</url>
-		<tag>develop</tag>
-	</scm>
+	
 </project>
