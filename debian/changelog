@@ -1,4 +1,4 @@
-kms-interface (3.0.5) UNRELEASED; urgency=low
+kms-interface (4.0.0) testing; urgency=low
 
   [ Santiago Gala ]
   * [maven-release-plugin] prepare for next development iteration
@@ -61,7 +61,42 @@ kms-interface (3.0.5) UNRELEASED; urgency=low
 
   [ José Antonio Santos Cadenas ]
 
- -- Santiago Gala <sgala@apache.org>  Fri, 24 Jan 2014 22:12:03 +0100
+  [ Jose Antonio Santos Cadenas ]
+  * Prepare for next development iteration
+
+  [ David Fernandez ]
+  * Add constructor param to use encoded media
+
+  [ Santiago Carot-Nemesio ]
+  * SdpEndPoint: Announce when transmission of media has started or stopped
+
+  [ Jose Antonio Santos Cadenas ]
+  * Update git plugin to solve a bug during release process
+
+  [ Santiago Carot-Nemesio ]
+  * MediaSdpEndPointType: Provide information regarding the location of the event
+
+  [ David Fernandez ]
+  * Create MainMixer in thrift interface
+  * Add MixerEndPoint to thrift interface
+  * Change the name MainMixer for DispatcherMixer
+  * Add constant for KmsMediaObjectRef type
+  * Add CompositeMixer to thrift interface
+  * Add CrowdDetectorFilter to thrift interface
+  * Replace MixerEndPoint name with MixerPort name
+
+  [ Jose Antonio Santos Cadenas ]
+  * Create method to test jsonRpc
+
+  [ Ivan Gracia ]
+  * Updated reference to parent pom
+
+  [ Jose Antonio Santos Cadenas ]
+  * Delete thrift interface, use it just as a transport
+
+  [ Santiago Gala ]
+
+ -- Jose Antonio Santos Cadenas <santoscadenas@gmail.com>  Tue, 04 Mar 2014 16:40:21 +0100
 
 kms-interface (3.0.1) saucy; urgency=low
 
