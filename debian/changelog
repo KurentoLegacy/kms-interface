@@ -1,3 +1,11 @@
+kms-interface (4.1.0) testing; urgency=low
+
+  * [release] Prepare for next development iteration
+  * Prepare pom for release to maven central
+  * Zombie typing leads to interesting failures...
+
+ -- Santiago Gala <sgala@apache.org>  Mon, 10 Mar 2014 17:25:59 +0100
+
 kms-interface (4.0.0) testing; urgency=low
 
   [ Santiago Gala ]
