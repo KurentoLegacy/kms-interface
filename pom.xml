@@ -8,6 +8,7 @@
 
 	<groupId>com.kurento.kms</groupId>
 	<artifactId>kms-interface</artifactId>
+	<version>${kms.interface.version}</version>
 	<packaging>jar</packaging>
 
 	<name>kms-interface</name>
@@ -16,6 +17,31 @@
 
 		The kms-interface project contains the Thrift interface between the Kurento Media Server native and java components.
 	</description>
+	<url>http://www.kurento.com/docs/${project.version}</url>
+
+	<licenses>
+		<license>
+			<name>GNU Lesser General Public License</name>
+			<url>http://www.gnu.org/licenses/lgpl-2.1.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<scm>
+		<url>https://github.com/Kurento/${project.artifactId}</url>
+		<connection>scm:git:https://github.com/Kurento/${project.artifactId}.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com:Kurento/${project.artifactId}.git</developerConnection>
+		<tag>develop</tag>
+	</scm>
+
+	<developers>
+		<developer>
+			<id>kurento.org</id>
+			<name>-kurento.org Community</name>
+			<organization>Kurento.org</organization>
+			<organizationUrl>http://www.kurento.org</organizationUrl>
+		</developer>
+	</developers>
 
 	<dependencies>
 		<dependency>
