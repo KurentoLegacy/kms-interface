@@ -1,3 +1,9 @@
+kms-interface (4.2.2) testing; urgency=low
+
+  * [release] Prepare for next development iteration
+
+ -- Santiago Gala <sgala@apache.org>  Sun, 30 Mar 2014 18:24:33 +0200
+
 kms-interface (4.2.1) testing; urgency=low
 
   * [release] Prepare for next development iteration
