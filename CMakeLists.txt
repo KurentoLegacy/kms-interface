@@ -99,8 +99,3 @@ set_target_properties(kmsiface PROPERTIES
 
 include_directories(kmsiface ${THRIFT_INCLUDE_DIRS})
 target_link_libraries(kmsiface ${THRIFT_LIBRARIES})
-
-INSTALL(TARGETS kmsiface
-			ARCHIVE DESTINATION lib
-			PUBLIC_HEADER DESTINATION include
-)
