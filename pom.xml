@@ -4,7 +4,7 @@
 
 	<groupId>com.kurento.kms</groupId>
 	<artifactId>kms-interface</artifactId>
-	<version>4.2.3-SNAPSHOT</version>
+	<version>4.3.0</version>
 	<packaging>jar</packaging>
 
 	<name>kms-interface</name>
@@ -82,7 +82,7 @@
 		<url>https://github.com/Kurento/${project.artifactId}</url>
 		<connection>scm:git:https://github.com/Kurento/${project.artifactId}.git</connection>
 		<developerConnection>scm:git:ssh://git@github.com:Kurento/${project.artifactId}.git</developerConnection>
-		<tag>develop</tag>
+		<tag>kms-interface-4.3.0</tag>
 	</scm>
 
 	<developers>
